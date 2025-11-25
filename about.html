@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Queens Way Capital</title>
+
+  <style>
+    :root{
+      --dark-green:#1a2f20;
+      --gold:#b38e42;
+      --black:#222;
+      --white:#ffffff;
+    }
+
+    /* Reset */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Inter", sans-serif;
+      background:var(--white);
+      color:var(--black);
+      line-height:1.7;
+    }
+
+    /* Header */
+    header{
+      background:#0b1c15;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .brand img{
+      height:42px;
+    }
+
+    .brand h1{
+      color:var(--gold);
+      font-size:18px;
+    }
+
+    nav a{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    nav a:hover{
+      color:var(--gold);
+    }
+
+    /* TOP GREEN SECTION (Heading + Paragraph) */
+    .top-green-section {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .top-green-section h2 {
+      font-size:36px;
+      font-family:"Playfair Display", serif;
+      margin-bottom:20px;
+    }
+
+    .top-green-section p {
+      font-size:18px;
+      max-width:900px;
+      margin: 0 auto;
+      line-height:1.7;
+    }
+
+    /* LEADERSHIP SECTION */
+    .leadership-section{
+      background:var(--white);
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    .leadership-section h3{
+      color:var(--gold);
+      font-family:"Playfair Display", serif;
+      font-size:28px;
+      margin-bottom:20px;
+    }
+
+    .leadership-section p{
+      color:var(--black);
+      max-width:800px;
+      margin:0 auto 30px;
+    }
+
+    .leadership{
+      max-width:1000px;
+      display:flex;
+      gap:25px;
+      margin:0 auto 60px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .leader-card{
+      background:rgba(255,255,255,0.06);
+      border-radius:14px;
+      padding:20px;
+      max-width:300px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.35);
+      text-align:center;
+      border-top:5px solid var(--gold);
+    }
+
+    .leader-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:12px;
+      margin-bottom:12px;
+    }
+
+    .leader-card h4{
+      color:var(--gold);
+      font-family:"Playfair Display", serif;
+      margin-bottom:5px;
+    }
+
+    /* SUPPORTED TEAM GREEN SECTION */
+    .supported-team {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 18px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 0;
+      color:#555;
+      margin-top:40px;
+      border-top:1px solid rgba(0,0,0,0.08);
+      background:var(--white);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="logo.png" alt="Logo">
+        <h1>Queens Way Capital</h1>
+      </div>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TOP GREEN SECTION -->
+  <section class="top-green-section">
+    <h2>About Queens Way Capital</h2>
+    <p>
+      Queens Way Capital is built by seasoned technology operators, strategic advisors,
+      and investment professionals with decades of experience across the African tech ecosystem.
+      Our team understands the realities of building, scaling, and sustaining technology businesses
+      in emerging markets.
+      <br><br>
+      We don’t fund or finance — we guide. Using our proprietary assessment models, we analyse
+      organisational readiness, leadership capability, product viability, and market opportunity.
+      This gives our clients a clear, grounded view of where they stand and the strategic direction
+      needed to move forward.
+    </p>
+  </section>
+
+  <!-- LEADERSHIP SECTION WITH WHITE BACKGROUND -->
+  <div class="leadership-section">
+    <h3 id="leadership">Our Leadership</h3>
+    <p>
+      Seasoned founders, strategists and technologists who combine startup grit with corporate experience
+      to guide founders and investors through every stage of growth.
+    </p>
+
+    <div class="leadership">
+      <div class="leader-card">
+        <h4>Ahmed Banderker</h4>
+        <p>Co-founder — strategic advisor with deep corporate leadership & investment strategy experience.</p>
+      </div>
+
+      <div class="leader-card">
+        <h4>Nathan Mariemuthu</h4>
+        <p>Co-founder — technology builder focused on AI, automation and digital transformation strategy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORTED TEAM GREEN SECTION -->
+  <section class="supported-team">
+    Supported by a team of over 100
+  </section>
+
+  <footer>
+    © 2025 Queens Way Capital · All Rights Reserved
+  </footer>
+
+</body>
+</html>
+
+

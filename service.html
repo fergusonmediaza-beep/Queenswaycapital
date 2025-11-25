@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services | Queens Way Capital</title>
+<style>
+body{
+  font-family:"Inter",sans-serif;
+  background:#041716;
+  color:#fff;
+  margin:0;
+  line-height:1.6;
+  opacity:0;
+  animation:fadeIn .9s ease-in forwards;
+}
+@keyframes fadeIn {
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ===== HEADER ===== */
+header{
+  background:#0b1c15;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+nav a{
+  color:#fff;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+  transition:color 0.3s ease;
+}
+nav a:hover{
+  color:#b38e42;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand img{
+  height:46px;
+}
+.brand h1{
+  font-size:22px;
+  color:#b38e42;
+  letter-spacing:0.5px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:60px 24px;
+}
+h3{
+  color:#b38e42;
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  margin-bottom:40px;
+  text-align:center;
+}
+
+/* ===== SERVICE CARDS LAYOUT ===== */
+.services-row{
+  display:flex;
+  gap:24px;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.card{
+  flex:1;
+  min-width:320px;
+  background:#1a2f20;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:16px;
+  padding:28px;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 8px 25px rgba(0,0,0,0.4);
+}
+.card h4{
+  color:#dfa94c;
+  font-family:"Playfair Display",serif;
+  font-size:22px;
+  margin-bottom:10px;
+  text-align:center;
+}
+.card p{
+  color:#d7e0d7;
+  font-size:15px;
+  text-align:center;
+}
+.card ul{
+  margin-top:15px;
+  padding-left:20px;
+  color:#e5e5e5;
+  font-size:14px;
+}
+.card ul li{
+  margin-bottom:8px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:25px;
+  color:#c8d1cb;
+  background:#0b1c15;
+  font-size:14px;
+  margin-top:60px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:960px){
+  .services-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="logo.png" alt="Logo">
+      <h1>Queens Way Capital</h1>
+    </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+   <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h3>Our Services</h3>
+
+  <div class="services-row">
+
+    <!-- STARTUPS -->
+    <div class="card">
+      <h4>For Technology Start-ups / Early Stage</h4>
+      <p>We empower emerging tech ventures to achieve scale, maturity, and investment readiness.</p>
+      <ul>
+        <li>Startup maturity assessments & scalability audits</li>
+        <li>Business model & value proposition design</li>
+        <li>Capital readiness and investor preparation</li>
+        <li>Fractional leadership and advisory support</li>
+        <li>Go-to-market and growth strategy</li>
+      </ul>
+    </div>
+
+    <!-- INVESTORS -->
+    <div class="card">
+      <h4>For VC’s / PE / Tech Investors</h4>
+      <p>We strengthen investor portfolios through due diligence, valuation, and post-investment optimization.</p>
+      <ul>
+        <li>Independent startup maturity assessments</li>
+        <li>Investment due diligence and risk mapping</li>
+        <li>ROI and value optimization frameworks</li>
+        <li>Market and technology opportunity research</li>
+        <li>Board and strategic advisory support</li>
+      </ul>
+    </div>
+
+    <!-- ENTERPRISES -->
+    <div class="card">
+      <h4>For Enterprises / Public Sector</h4>
+      <p>We enable automation, AI adoption, and innovation with no capex or resource commitment.</p>
+      <ul>
+        <li>Digital transformation and AI integration</li>
+        <li>Automation and workflow optimization</li>
+        <li>Corporate innovation & workforce training</li>
+        <li>Data analytics and performance dashboards</li>
+        <li>Strategic advisory and public sector innovation</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2025 Queens Way Capital. All Rights Reserved.
+</footer>
+</body>
+</html>
+
+
