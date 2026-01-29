@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About | Queens Way Capital</title>
+
+<style>
+:root{
+  --dark-green:#1a2f20;
+  --gold:#b38e42;
+  --black:#222;
+  --white:#ffffff;
+}
+
+/* Reset */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Inter", sans-serif;
+  background:var(--white);
+  color:var(--black);
+  line-height:1.7;
+}
+
+/* Header */
+header{
+  background:#0b1c15;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 1001;
+}
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand img{
+  height:42px;
+}
+.brand h1{
+  color:var(--gold);
+  font-size:18px;
+}
+nav.nav-menu{
+  display: flex;
+  margin: 0;
+}
+nav.nav-menu a{
+  color:#fff;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+nav.nav-menu a:hover{
+  color:var(--gold);
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* TOP GREEN SECTION */
+.top-green-section {
+  background: var(--dark-green);
+  color: var(--white);
+  text-align: center;
+  padding: 80px 20px;
+}
+.top-green-section h2 {
+  font-size:36px;
+  font-family:"Playfair Display", serif;
+  margin-bottom:20px;
+}
+.top-green-section p {
+  font-size:18px;
+  max-width:900px;
+  margin: 0 auto;
+  line-height:1.7;
+}
+
+/* LEADERSHIP SECTION */
+.leadership-section{
+  background:var(--white);
+  padding:50px 20px;
+  text-align:center;
+}
+.leadership-section h3{
+  color:var(--gold);
+  font-family:"Playfair Display", serif;
+  font-size:28px;
+  margin-bottom:20px;
+}
+.leadership-section p{
+  color:var(--black);
+  max-width:800px;
+  margin:0 auto 30px;
+}
+.leadership{
+  max-width:1000px;
+  display:flex;
+  gap:25px;
+  margin:0 auto 60px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.leader-card{
+  background:rgba(255,255,255,0.06);
+  border-radius:14px;
+  padding:20px;
+  max-width:300px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+  text-align:center;
+  border-top:5px solid var(--gold);
+}
+.leader-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+.leader-card h4{
+  color:var(--gold);
+  font-family:"Playfair Display", serif;
+  margin-bottom:5px;
+}
+
+/* SUPPORTED TEAM GREEN SECTION */
+.supported-team {
+  background: var(--dark-green);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 18px;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:30px 0;
+  color:#555;
+  margin-top:40px;
+  border-top:1px solid rgba(0,0,0,0.08);
+  background:var(--white);
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media(max-width:768px){
+  .hamburger {
+    display: flex;
+  }
+
+  nav.nav-menu {
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: #0b1c15;
+    flex-direction: column;
+    padding: 18px 0;
+    gap: 12px;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  nav.nav-menu.active {
+    display: flex;
+  }
+
+  nav.nav-menu a {
+    display: block;
+    margin: 0;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  nav.nav-menu a:hover {
+    color: var(--gold);
+  }
+
+  .nav-inner {
+    flex-wrap: nowrap;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .mobile-menu-spacer {
+    height: 0;
+    display: block;
+    width: 100%;
+  }
+
+  body.menu-open .mobile-menu-spacer {
+    height: 200px;
+  }
+
+  .top-green-section h2{
+    font-size:28px;
+  }
+  .top-green-section p{
+    font-size:16px;
+  }
+  .leadership{
+    flex-direction:column;
+    gap:20px;
+  }
+  .leader-card{
+    width:100%;
+    max-width:350px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="logo.png" alt="Logo">
+      <h1>Queens Way Capital</h1>
+    </div>
+
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="nav-menu">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu-spacer" aria-hidden="true"></div>
+
+<!-- TOP GREEN SECTION -->
+<section class="top-green-section">
+  <h2>About Queens Way Capital</h2>
+  <p>
+    Queens Way Capital is built by seasoned technology operators, strategic advisors,
+    and investment professionals with decades of experience across the African tech ecosystem.
+    Our team understands the realities of building, scaling, and sustaining technology businesses
+    in emerging markets.
+    <br><br>
+    We don't fund or finance — we guide. Using our proprietary assessment models, we analyse
+    organisational readiness, leadership capability, product viability, and market opportunity.
+    This gives our clients a clear, grounded view of where they stand and the strategic direction
+    needed to move forward.
+  </p>
+</section>
+
+<!-- LEADERSHIP SECTION -->
+<div class="leadership-section">
+  <h3 id="leadership">Our Leadership</h3>
+  <p>
+    Seasoned founders, strategists and technologists who combine startup grit with corporate experience
+    to guide founders and investors through every stage of growth.
+  </p>
+
+  <div class="leadership">
+    <div class="leader-card">
+      <h4>Ahmed Banderker</h4>
+      <p>Co-founder:Strategic advisor with deep corporate leadership & investment strategy experience.</p>
+    </div>
+
+    <div class="leader-card">
+      <h4>Nathan Mariemuthu</h4>
+      <p>Co-founder:Technology builder focused on AI, automation and digital transformation strategy.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPORTED TEAM GREEN SECTION -->
+<section class="supported-team">
+  Supported by a dynamic team of over 100 innovators and problem-solvers.
+</section>
+
+<footer>
+<p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const body = document.body;
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navMenu.classList.toggle('active');
+      body.classList.toggle('menu-open', !expanded);
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+      });
+    });
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services | Queens Way Capital</title>
+
+<style>
+body{
+  font-family:"Inter",sans-serif;
+  background:#041716;
+  color:#fff;
+  margin:0;
+  line-height:1.6;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:#0b1c15;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+nav a{
+  color:#fff;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+nav a:hover{ color:#b38e42; }
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand img{ height:46px; }
+.brand h1{
+  font-size:22px;
+  color:#b38e42;
+}
+
+/* ===== MAIN ===== */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:60px 24px;
+}
+h3{
+  color:#b38e42;
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  margin-bottom:60px;
+  text-align:center;
+}
+
+/* ===== VERTICAL CARDS ===== */
+.services-row{
+  display:flex;
+  flex-direction:column;
+  gap:50px;
+}
+
+/* ===== CARD ===== */
+.card{
+  display:flex;
+  flex-direction:row;
+  gap:40px; 
+  background:#1a2f20;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  padding:32px;
+  align-items:center;
+  transition:all 0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* ===== IMAGE ===== */
+.card-img{
+  width:400px;   
+  height:250px;  
+  border-radius:18px;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#0b1c15;
+}
+
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ===== TEXT ===== */
+.card-content{
+  flex:1;
+}
+.card-content h4{
+  color:#dfa94c;
+  font-family:"Playfair Display",serif;
+  font-size:28px; 
+  margin:0 0 12px 0;
+}
+.card-content p{
+  color:#d7e0d7;
+  font-size:17px;
+}
+.card-content ul{
+  margin-top:14px;
+  padding-left:22px; 
+  font-size:15px;
+}
+.card-content li{
+  margin-bottom:8px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:25px;
+  background:#0b1c15;
+  margin-top:60px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+  .card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .card-img{
+    width:100%;
+    height:260px; 
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="logo.png" alt="Logo">
+      <h1>Queens Way Capital</h1>
+    </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h3>Our Services</h3>
+
+  <div class="services-row">
+
+    <!-- ENTERPRISE -->
+    <div class="card">
+      <div class="card-img">
+        <img src="enterprise.png" alt="Enterprise">
+      </div>
+      <div class="card-content">
+        <h4>For Medium and Large Enterprises</h4>
+        <p>Enable automation, AI adoption, and operational enhancement.</p>
+        <ul>
+          <li>Business process automation advisory</li>
+          <li>AI integration and adoption support</li>
+          <li>Value proposition development</li>
+          <li>Strategic leadership guidance</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <!-- INVESTORS -->
+    <div class="card">
+      <div class="card-img">
+        <img src="investors.png" alt="Investors">
+      </div>
+      <div class="card-content">
+        <h4>For Investors / Venture Capitalists</h4>
+        <p>Support for better investment decisions and portfolio optimization.</p>
+        <ul>
+          <li>Due diligence support</li>
+          <li>Risk & ROI optimisation</li>
+          <li>Startup & technology assessments</li>
+          <li>Funding strategy & guidance</li>
+        </ul>
+      </div>
+    </div>
+
+     <!-- STARTUPS -->
+    <div class="card">
+      <div class="card-img">
+        <img src="startup.png" alt="Startups">
+      </div>
+      <div class="card-content">
+        <h4>For Technology Start-ups / Early Stage</h4>
+        <p>We empower emerging tech ventures to achieve scale, maturity, and investment readiness.</p>
+        <ul>
+          <li>Startup maturity assessments & scalability audits</li>
+          <li>Business model & value proposition design</li>
+          <li>Capital readiness and investor preparation</li>
+          <li>Fractional leadership and advisory support</li>
+          <li>Go-to-market and growth strategy</li>
+        </ul>
+      </div>
+    </div>
+
+<footer>
+               <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
+
+</footer>
+
+</body>
+</html>

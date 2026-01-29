@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queens Way Capital</title>
+<style>
+/* ===== COLORS ===== */
+:root {
+  --dark-green: #1a2f20;
+  --gold: #b38e42;
+  --blackish: #041716;
+  --white: #ffffff;
+  --light-bg: #f5f5f5;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: var(--white);
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #0b1c15;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  position: relative;
+  z-index: 1001;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav.nav-menu {
+  display: flex;
+  margin: 0;
+}
+
+nav.nav-menu a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav.nav-menu a:hover {
+  color: var(--gold);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand img {
+  height: 46px;
+}
+
+.brand h1 {
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 120px 20px;
+  color: var(--white);
+
+  background-image: linear-gradient(
+      rgba(4, 23, 22, 0.7),
+      rgba(4, 23, 22, 0.7)
+    ),
+    url("Home (2).png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.hero button {
+  background-color: var(--gold);
+  color: var(--dark-green);
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background-color: var(--blackish);
+  color: var(--white);
+}
+
+/* ===== SERVICES SECTION ===== */
+.services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 60px;
+  background-color: var(--white);
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.services img {
+  width: 350px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.services-text {
+  max-width: 500px;
+}
+
+.services-text h2 {
+  color: var(--gold);
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.services-text p {
+  color: #333;
+}
+
+.services-text button {
+  margin-top: 20px;
+  background-color: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.services-text button:hover {
+  background-color: var(--dark-green);
+}
+
+/* ===== TEAM SECTION ===== */
+.team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-green);
+  color: var(--white);
+  padding: 80px 60px;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.team img {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.team-text {
+  max-width: 480px;
+}
+
+.team-text p {
+  color: var(--white);
+}
+
+.team-text button {
+  margin-top: 20px;
+  background-color: var(--gold);
+  color: var(--dark-green);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.team-text button:hover {
+  background-color: var(--blackish);
+  color: var(--white);
+}
+
+/* ===== PARTNERS SECTION ===== */
+.partners {
+  padding: 60px 20px;
+  background: var(--white);
+  text-align: center;
+}
+
+.partners h2 {
+  color: var(--gold);
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+/* slider wrapper */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* the moving track */
+.slide-track {
+  display: flex;
+  width: calc(250px * 18);
+  animation: scroll 18s linear infinite;
+}
+
+/* each logo card */
+.slide {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.slide img {
+  height: 60px;
+  object-fit: contain;
+}
+
+/* animation */
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: var(--light-bg);
+  text-align: center;
+  padding: 30px;
+  color: #555;
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--dark-green);
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer a img {
+  width: 25px;
+  vertical-align: middle;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav.nav-menu {
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: #0b1c15;
+    flex-direction: column;
+    padding: 18px 0;
+    gap: 12px;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  nav.nav-menu.active {
+    display: flex;
+  }
+
+  nav.nav-menu a {
+    display: block;
+    margin: 0;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  nav.nav-menu a:hover {
+    color: var(--gold);
+  }
+
+  .nav-inner {
+    flex-wrap: nowrap;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .mobile-menu-spacer {
+    height: 0;
+    display: block;
+    width: 100%;
+  }
+
+  body.menu-open .mobile-menu-spacer {
+    height: 200px;
+  }
+
+  /* Make images shrink but keep layout */
+  .services img,
+  .team img {
+    width: 40%;
+  }
+
+  /* Keep side-by-side layout */
+  .services,
+  .team {
+    flex-direction: row;
+    text-align: left;
+    padding: 40px 20px;
+  }
+
+  /* Adjust hero text */
+  .hero h1 {
+    font-size: 40px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="logo.png" alt="Logo">
+      <h1>Queens Way Capital</h1>
+    </div>
+
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="nav-menu">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu-spacer" aria-hidden="true"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h1>Queens Way Capital</h1>
+  <p>We are an AI and technology advisory helping organisations make smarter investments, scaling, and optimisation decisions. We support startups, investors, and enterprises in unlocking growth, managing risk, and delivering measurable outcomes through technology.</p>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <img src="service1.jpeg" alt="Business Meeting">
+  <div class="services-text">
+    <h2>Our Services</h2>
+    <p>Queens Way Capital offers a range of services to support medium and large enterprises in embracing automation and AI without the need for significant capital expenditure or resource commitment. Our team evaluates startup maturity and scalability using customised models, provides fractional leadership and strategic advisory roles, and develops compelling value propositions for larger customers. Additionally, we assist venture capitalists and funders in optimising ROI and reducing failure risk, while guiding technology companies in capital approaches, fundraising, use case development, and operational enhancement.</p>
+    <button onclick="window.location.href='service.html'">Discover More</button>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="about">
+  <div class="team-text">
+    <p>Meet the skilled team at Queens Way Capital, comprising tech investors, experienced deal makers, and corporate specialists dedicated to driving business transformation through automation and AI adoption. Our professionals are committed to delivering impactful solutions and strategic guidance to propel your business forward.</p>
+    <button onclick="window.location.href='about.html#leadership'">Meet the Team</button>
+  </div>
+  <img src="team.jpg" alt="Team Meeting">
+</section>
+
+<!-- PARTNERS -->
+<section class="partners" id="partners">
+  <h2>Our Partners</h2>
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide"><img src="aicampus.png"></div>
+      <div class="slide"><img src="empire.png"></div>
+      <div class="slide"><img src="epf.png"></div>
+      <div class="slide"><img src="orcaa.png"></div>
+      <div class="slide"><img src="visiosoft.png"></div>
+      <div class="slide"><img src="digication.png"></div>
+      <div class="slide"><img src="smartview.png"></div>
+      <div class="slide"><img src="paypoint.png"></div>
+      <div class="slide"><img src="TDM.png"></div>
+      <div class="slide"><img src="aicampus.png"></div>
+      <div class="slide"><img src="empire.png"></div>
+      <div class="slide"><img src="epf.png"></div>
+      <div class="slide"><img src="orcaa.png"></div>
+      <div class="slide"><img src="visiosoft.png"></div>
+      <div class="slide"><img src="digication.png"></div>
+      <div class="slide"><img src="smartview.png"></div>
+      <div class="slide"><img src="paypoint.png"></div>
+      <div class="slide"><img src="TDM.png"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-bottom">
+<p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const body = document.body;
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navMenu.classList.toggle('active');
+      body.classList.toggle('menu-open', !expanded);
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+      });
+    });
+  }
+});
+</script>
+
+</body>
+</html>
