@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Contact | Queens Way Capital</title>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S"></script>
+
 <style>
 :root {
   --dark-green: #1a2f20;
@@ -15,12 +17,7 @@
   --white: #ffffff;
 }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: "Inter", sans-serif;
@@ -45,23 +42,11 @@ header {
   align-items: center;
   flex-wrap: wrap;
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.brand img {
-  height: 46px;
-}
-.brand h1 {
-  color: var(--gold);
-  font-size: 20px;
-  font-weight: 700;
-}
-nav.nav-menu {
-  display: flex;
-  margin: 0;
-}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { height: 46px; }
+.brand h1 { color: var(--gold); font-size: 20px; font-weight: 700; }
+
+nav.nav-menu { display: flex; margin: 0; }
 nav.nav-menu a {
   color: var(--white);
   text-decoration: none;
@@ -69,11 +54,9 @@ nav.nav-menu a {
   font-weight: 600;
   font-size: 15px;
 }
-nav.nav-menu a:hover {
-  color: var(--gold);
-}
+nav.nav-menu a:hover { color: var(--gold); }
 
-/* HAMBURGER MENU */
+/* HAMBURGER */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -92,17 +75,11 @@ nav.nav-menu a:hover {
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) { opacity: 0; }
+.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
   background: var(--dark-green);
   text-align: center;
@@ -114,12 +91,7 @@ nav.nav-menu a:hover {
   font-size: 36px;
   margin-bottom: 12px;
 }
-.hero p {
-  color: var(--white);
-  font-size: 16px;
-  max-width: 700px;
-  margin: 0 auto;
-}
+.hero p { color: var(--white); font-size: 16px; max-width: 700px; margin: 0 auto; }
 
 /* CONTACT CONTENT */
 .contact-content {
@@ -132,40 +104,26 @@ nav.nav-menu a:hover {
   justify-content: space-between;
 }
 
-/* LEFT SIDE - INFO */
-.contact-info {
-  flex: 1 1 380px;
-}
+/* LEFT */
+.contact-info { flex: 1 1 380px; }
 .contact-info h3 {
   font-family: "Playfair Display", serif;
   font-size: 28px;
   color: var(--gold);
   margin-bottom: 20px;
 }
-.contact-info p {
-  font-size: 16px;
-  color: var(--white);
-  line-height: 1.7;
-}
-.contact-info span {
-  color: var(--orange-gold);
-  font-weight: 600;
-}
+.contact-info p { font-size: 16px; color: var(--white); line-height: 1.7; }
+.contact-info span { color: var(--orange-gold); font-weight: 600; }
 
-/* FORM (RIGHT SIDE) */
-.contact-form {
-  flex: 1 1 420px;
-}
+/* FORM */
+.contact-form { flex: 1 1 420px; }
 .contact-form h3 {
   font-family: "Playfair Display", serif;
   font-size: 28px;
   color: var(--gold);
   margin-bottom: 20px;
 }
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-}
+.contact-form form { display: flex; flex-direction: column; }
 .contact-form input,
 .contact-form textarea {
   background: transparent;
@@ -176,11 +134,27 @@ nav.nav-menu a:hover {
   margin-bottom: 25px;
   font-size: 16px;
   outline: none;
+  font-family: "Inter", sans-serif;
 }
 .contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #cccccc;
+.contact-form textarea::placeholder { color: #cccccc; }
+
+/* reCAPTCHA v3 legal notice */
+.recaptcha-notice {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
+.recaptcha-notice a { color: var(--gold); text-decoration: none; }
+
+.form-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-bottom: 15px;
+  display: none;
+}
+
 .contact-form button {
   background: var(--gold);
   border: none;
@@ -191,9 +165,23 @@ nav.nav-menu a:hover {
   cursor: pointer;
   transition: 0.3s ease;
 }
-.contact-form button:hover {
-  background: var(--orange-gold);
+.contact-form button:hover { background: var(--orange-gold); }
+.contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-success {
+  display: none;
+  background: rgba(179, 142, 66, 0.15);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 18px 20px;
+  color: var(--gold);
+  font-size: 15px;
+  margin-top: 16px;
+  text-align: center;
 }
+
+/* Hide floating badge (allowed when showing the notice text above) */
+.grecaptcha-badge { visibility: hidden !important; }
 
 /* FOOTER */
 footer {
@@ -207,9 +195,7 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+  .hamburger { display: flex; }
 
   nav.nav-menu {
     position: fixed;
@@ -224,54 +210,22 @@ footer {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     z-index: 1000;
   }
-
-  nav.nav-menu.active {
-    display: flex;
-  }
-
+  nav.nav-menu.active { display: flex; }
   nav.nav-menu a {
     display: block;
     margin: 0;
     padding: 12px 0;
     text-align: center;
     font-size: 16px;
-    color: #fff;
-    text-decoration: none;
   }
+  .nav-inner { flex-wrap: nowrap; }
+  body.menu-open { overflow: hidden; }
+  .mobile-menu-spacer { height: 0; display: block; width: 100%; }
+  body.menu-open .mobile-menu-spacer { height: 200px; }
 
-  nav.nav-menu a:hover {
-    color: var(--gold);
-  }
-
-  .nav-inner {
-    flex-wrap: nowrap;
-  }
-
-  body.menu-open {
-    overflow: hidden;
-  }
-
-  .mobile-menu-spacer {
-    height: 0;
-    display: block;
-    width: 100%;
-  }
-
-  body.menu-open .mobile-menu-spacer {
-    height: 200px;
-  }
-
-  .contact-content {
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .hero h2 {
-    font-size: 28px;
-  }
-  .hero p {
-    font-size: 14px;
-  }
+  .contact-content { flex-direction: column; }
+  .hero h2 { font-size: 28px; }
+  .hero p { font-size: 14px; }
 }
 </style>
 </head>
@@ -284,13 +238,11 @@ footer {
       <img src="logo.png" alt="Queens Way Capital Logo">
       <h1>Queens Way Capital</h1>
     </div>
-
     <button class="hamburger" aria-label="Menu" aria-expanded="false">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
-
     <nav class="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -313,13 +265,10 @@ footer {
     <h3>Get in Touch</h3>
     <p>
       <span>Location:</span><br><br>
-
       Cape Town Office<br>
       3rd Floor, 7 West Quay Road, Waterfront<br><br>
-
       Johannesburg Office<br>
       35 Ferguson Road, Illovo, Sandton<br><br>
-
       <span>Phone:</span><br>
       +27 21 180 2936
     </p>
@@ -327,29 +276,43 @@ footer {
 
   <div class="contact-form">
     <h3>Send a Message</h3>
-    <form 
-      action="mailto:ahmed@queenswaycapital.co.za" 
-      method="GET" 
-      enctype="text/plain"
-    >
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+    <form id="contactForm" novalidate>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+
+      <!-- Required notice when hiding the reCAPTCHA badge -->
+      <p class="recaptcha-notice">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+      </p>
+
+      <p class="form-error" id="formError"></p>
+
+      <button type="submit" id="submitBtn">Send Message</button>
+
+      <div class="form-success" id="formSuccess">
+        ✓ Your message has been sent! We'll be in touch shortly.
+      </div>
     </form>
   </div>
+
 </section>
 
 <footer>
   <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
 </footer>
 
-
 <script>
+const SITE_KEY = '6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S';
+
 document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  const body = document.body;
+
+  /* ── Hamburger ── */
+  const hamburger  = document.querySelector('.hamburger');
+  const navMenu    = document.querySelector('.nav-menu');
+  const body       = document.body;
 
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
@@ -358,7 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.toggle('active');
       body.classList.toggle('menu-open', !expanded);
     });
-
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.setAttribute('aria-expanded', 'false');
@@ -367,8 +329,60 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* ── Form ── */
+  const form        = document.getElementById('contactForm');
+  const submitBtn   = document.getElementById('submitBtn');
+  const formError   = document.getElementById('formError');
+  const formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.style.display = 'none';
+    formSuccess.style.display = 'none';
+
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      formError.textContent = 'Please fill in all fields.';
+      formError.style.display = 'block';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      // reCAPTCHA v3 — runs invisibly, returns a token
+      await new Promise(resolve => grecaptcha.ready(resolve));
+      const token = await grecaptcha.execute(SITE_KEY, { action: 'contact_form' });
+
+      // Token received — open mail client
+      const mailtoLink = `mailto:ahmed@queenswaycapital.co.za`
+        + `?subject=${encodeURIComponent('Contact Form - ' + name)}`
+        + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+
+      window.location.href = mailtoLink;
+
+      setTimeout(() => {
+        formSuccess.style.display = 'block';
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }, 800);
+
+    } catch (err) {
+      formError.textContent = 'reCAPTCHA failed. Please refresh and try again.';
+      formError.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+
 });
 </script>
-</body>
 
+</body>
 </html>
