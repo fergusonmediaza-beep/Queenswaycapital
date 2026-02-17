@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="hC96JrXeS-TvGXhqDU2HvuFT-fFUz_C9MJtnvsI98A8" />
+<meta name="google-site-verification" content="hC96JrXeS-TvGXhqDU2HvuFT-fFUz_C9MJtnvsI98A8" />
 <title>Queens Way Capital</title>
 <style>
 /* ===== COLORS ===== */
@@ -29,7 +29,7 @@ body {
   line-height: 1.6;
 }
 
-
+/* ===== HEADER ===== */
 header {
   background: #0b1c15;
   border-bottom: 1px solid rgba(255,255,255,.08);
@@ -80,7 +80,7 @@ nav.nav-menu a:hover {
   letter-spacing: 0.5px;
 }
 
-/* HAMBURGER MENU */
+/* ===== HAMBURGER MENU ===== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -117,22 +117,18 @@ nav.nav-menu a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
   padding: 120px 20px;
   color: var(--white);
-
   background-image: linear-gradient(
       rgba(4, 23, 22, 0.7),
       rgba(4, 23, 22, 0.7)
     ),
     url("Home (2).png");
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 .hero h1 {
   font-size: 48px;
@@ -167,13 +163,14 @@ nav.nav-menu a:hover {
   padding: 80px 60px;
   background-color: var(--white);
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 40px;
 }
 
 .services img {
   width: 350px;
   max-width: 100%;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .services-text {
@@ -213,13 +210,14 @@ nav.nav-menu a:hover {
   color: var(--white);
   padding: 80px 60px;
   flex-wrap: nowrap;
-  gap: 20px;
+  gap: 40px;
 }
 
 .team img {
   width: 300px;
   max-width: 100%;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .team-text {
@@ -258,7 +256,6 @@ nav.nav-menu a:hover {
   font-size: 28px;
 }
 
-/* slider wrapper */
 .slider {
   width: 100%;
   overflow: hidden;
@@ -266,14 +263,12 @@ nav.nav-menu a:hover {
   margin: auto;
 }
 
-/* the moving track */
 .slide-track {
   display: flex;
   width: calc(250px * 18);
   animation: scroll 18s linear infinite;
 }
 
-/* each logo card */
 .slide {
   width: 250px;
   display: flex;
@@ -287,7 +282,6 @@ nav.nav-menu a:hover {
   object-fit: contain;
 }
 
-/* animation */
 @keyframes scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -369,26 +363,62 @@ footer a img {
     height: 200px;
   }
 
-  /* Make images shrink but keep layout */
-  .services img,
-  .team img {
-    width: 40%;
-  }
-
-  /* Keep side-by-side layout */
-  .services,
-  .team {
-    flex-direction: row;
-    text-align: left;
-    padding: 40px 20px;
-  }
-
-  /* Adjust hero text */
+  /* Hero */
   .hero h1 {
-    font-size: 40px;
+    font-size: 36px;
   }
   .hero p {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  /* ===== SERVICES — image first, full width ===== */
+  .services {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .services img {
+    width: 100%;
+    border-radius: 10px;
+    order: -1; /* image always first */
+  }
+
+  .services-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .services-text button {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ===== TEAM — image first, full width ===== */
+  .team {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .team img {
+    width: 100%;
+    border-radius: 10px;
+    order: -1; /* image always first */
+  }
+
+  .team-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .team-text button {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
@@ -474,9 +504,9 @@ footer a img {
 
 <!-- FOOTER -->
 <footer>
-<div class="footer-bottom">
-<p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
-</div>
+  <div class="footer-bottom">
+    <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
+  </div>
 </footer>
 
 <script>
@@ -506,6 +536,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
-
-
