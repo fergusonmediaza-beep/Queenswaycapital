@@ -4,422 +4,224 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="hC96JrXeS-TvGXhqDU2HvuFT-fFUz_C9MJtnvsI98A8" />
-<title>Queens Way Capital</title>
+<title>Queens Way Capital | Strategic Activation Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===== COLORS ===== */
 :root {
   --dark-green: #1a2f20;
-  --gold: #b38e42;
+  --gold: #8c7030;
+  --gold-light: #a8873a;
   --blackish: #041716;
   --white: #ffffff;
+  --muted: #d7e0d7;
   --light-bg: #f5f5f5;
+  --header-bg: #0b1c15;
 }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Inter", sans-serif; background: var(--white); color: #222; line-height: 1.6; }
 
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background-color: var(--white);
-  color: #222;
-  line-height: 1.6;
-}
-
-/* ===== HEADER ===== */
+/* ── HEADER ── */
 header {
-  background: #0b1c15;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  position: relative;
-  z-index: 1001;
+  background: var(--header-bg);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  position: relative; z-index: 1001;
 }
-
 .nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
 }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { height: 44px; }
+.brand span { font-size: 20px; color: var(--gold); font-weight: 700; letter-spacing: 0.3px; font-family: "Inter", sans-serif; }
+nav.nav-links { display: flex; align-items: center; gap: 28px; }
+nav.nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.25s; }
+nav.nav-links a:hover { color: var(--gold-light); }
+.nav-cta { background: var(--gold); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; font-weight: 700 !important; transition: background 0.25s !important; }
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--white) !important; }
 
-nav.nav-menu {
-  display: flex;
-  margin: 0;
-}
-
-nav.nav-menu a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-nav.nav-menu a:hover {
-  color: var(--gold);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand img {
-  height: 46px;
-}
-
-.brand h1 {
-  font-size: 22px;
-  color: var(--gold);
-  letter-spacing: 0.5px;
-}
-
-/* ===== HAMBURGER MENU ===== */
+/* ── HAMBURGER (mobile only) ── */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+  display: none; flex-direction: column; justify-content: space-around;
+  width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1100;
 }
-.hamburger-line {
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+.hamburger-line { width: 100%; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
 
-/* ===== HERO SECTION ===== */
+/* ── SIDEBAR OVERLAY ── */
+.sidebar-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1050;
+  opacity: 0; transition: opacity 0.3s;
+}
+.sidebar-overlay.open { display: block; opacity: 1; }
+
+/* ── SIDEBAR DRAWER ── */
+.sidebar {
+  position: fixed; top: 0; right: -280px; width: 260px; height: 100%;
+  background: var(--header-bg); z-index: 1060;
+  display: flex; flex-direction: column;
+  padding: 0; transition: right 0.32s cubic-bezier(0.4,0,0.2,1);
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar.open { right: 0; }
+.sidebar-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-brand { display: flex; align-items: center; gap: 8px; }
+.sidebar-brand img { height: 32px; }
+.sidebar-brand span { font-size: 14px; color: var(--gold); font-weight: 700; }
+.sidebar-close {
+  width: 32px; height: 32px; background: rgba(255,255,255,0.06); border: none; border-radius: 6px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.sidebar-nav { display: flex; flex-direction: column; padding: 20px 0; flex: 1; }
+.sidebar-nav a {
+  color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 600; font-size: 15px;
+  padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sidebar-nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+.sidebar-nav a:last-child { border-bottom: none; }
+.sidebar-nav a svg { opacity: 0.4; }
+.sidebar-footer {
+  padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-footer a {
+  display: block; background: var(--gold); color: var(--white); text-align: center;
+  padding: 12px; border-radius: 4px; font-weight: 700; font-size: 14px; text-decoration: none;
+  transition: background 0.25s;
+}
+.sidebar-footer a:hover { background: var(--gold-light); }
+
+/* ── SHARED ── */
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; display: block; }
+.btn-primary { background: var(--gold); color: var(--white); border: none; padding: 13px 30px; font-size: 14px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.btn-primary:hover { background: var(--gold-light); }
+.btn-outline-light { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); padding: 13px 30px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.btn-outline-light:hover { border-color: var(--gold-light); color: var(--gold-light); }
+.btn-dark { background: var(--dark-green); color: var(--white); border: none; padding: 13px 30px; font-size: 14px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+.btn-dark:hover { background: #122318; }
+
+/* ── HERO ── */
 .hero {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 120px 20px;
-  color: var(--white);
-  background-image: linear-gradient(
-      rgba(4, 23, 22, 0.7),
-      rgba(4, 23, 22, 0.7)
-    ),
-    url("Home (2).png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  min-height: 88vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 100px 20px; color: var(--white);
+  background-image: linear-gradient(rgba(4,23,22,0.74), rgba(4,23,22,0.74)), url("Home (2).png");
+  background-size: cover; background-position: center;
 }
+.hero-tag { display: inline-block; background: rgba(140,112,48,0.18); border: 1px solid var(--gold); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 18px; border-radius: 30px; margin-bottom: 26px; }
+.hero h1 { font-family: "Playfair Display", serif; font-size: 52px; line-height: 1.15; margin-bottom: 18px; max-width: 780px; }
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub { font-size: 16px; max-width: 500px; color: var(--muted); margin-bottom: 20px; }
+.hero-chips { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; }
+.hero-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 30px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+/* ── WHAT WE DO ── */
+.what-we-do { background: var(--dark-green); padding: 72px 24px; }
+.wwd-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.wwd-inner > h2 { font-family: "Playfair Display", serif; font-size: 34px; color: var(--white); margin-bottom: 44px; }
+.wwd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 14px; overflow: hidden; text-align: left; }
+.wwd-col { background: rgba(255,255,255,0.04); padding: 32px 26px; border: 1px solid rgba(255,255,255,0.07); transition: background 0.3s; }
+.wwd-col:hover { background: rgba(255,255,255,0.08); }
+.wwd-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(140,112,48,0.12); border: 1px solid rgba(140,112,48,0.28); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.wwd-col h3 { color: var(--gold-light); font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+.wwd-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.wwd-tag { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.65); font-size: 12px; padding: 4px 11px; border-radius: 20px; }
+.wwd-cta { text-align: center; margin-top: 34px; }
+
+/* ── WHY QWC ── */
+.why-qwc { background: var(--white); padding: 72px 24px; }
+.why-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.why-inner > h2 { font-family: "Playfair Display", serif; font-size: 34px; color: #0b1c15; margin-bottom: 44px; }
+.why-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; text-align: left; }
+.why-item { padding: 26px 22px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.07); background: #fafafa; }
+.why-item .wi-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(140,112,48,0.08); border: 1px solid rgba(140,112,48,0.22); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.why-item h4 { font-size: 14px; font-weight: 700; color: var(--dark-green); margin-bottom: 6px; }
+.why-item p { font-size: 13px; color: #666; line-height: 1.55; }
+
+/* ── VS CONTRAST ── */
+.contrast-section { background: var(--light-bg); padding: 72px 24px; }
+.contrast-inner { max-width: 840px; margin: 0 auto; text-align: center; }
+.contrast-inner > h2 { font-family: "Playfair Display", serif; font-size: 32px; color: #0b1c15; margin-bottom: 6px; }
+.contrast-sub { color: #777; font-size: 14px; margin-bottom: 40px; }
+.vs-wrap { display: grid; grid-template-columns: 1fr 44px 1fr; }
+.vs-col { display: flex; flex-direction: column; }
+.vs-col.them { background: #fff; border: 1px solid #e2e2e2; border-radius: 14px 0 0 14px; overflow: hidden; }
+.vs-col.us { background: var(--dark-green); border-radius: 0 14px 14px 0; overflow: hidden; }
+.vs-mid { display: flex; align-items: center; justify-content: center; background: #e0e0e0; }
+.vs-badge { background: var(--dark-green); color: var(--gold-light); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; padding: 10px 6px; border-radius: 4px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.vs-head { padding: 15px 22px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.vs-col.them .vs-head { background: #f2f2f2; color: #aaa; border-bottom: 1px solid #e8e8e8; }
+.vs-col.us .vs-head { background: rgba(255,255,255,0.05); color: var(--gold-light); border-bottom: 1px solid rgba(255,255,255,0.07); }
+.vs-row { padding: 14px 22px; font-size: 14px; display: flex; align-items: center; gap: 12px; }
+.vs-col.them .vs-row { color: #999; border-bottom: 1px solid #f2f2f2; }
+.vs-col.them .vs-row:last-child { border-bottom: none; }
+.vs-col.us .vs-row { color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.vs-col.us .vs-row:last-child { border-bottom: none; }
+
+/* ── PROCESS ── */
+.process-section { background: var(--dark-green); padding: 72px 24px; }
+.process-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+.process-inner > h2 { font-family: "Playfair Display", serif; font-size: 34px; color: var(--gold-light); margin-bottom: 48px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+.steps::before { content: ''; position: absolute; top: 26px; left: 22%; right: 22%; height: 1px; background: rgba(140,112,48,0.3); z-index: 0; }
+.step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+.step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--dark-green); border: 2px solid var(--gold); color: var(--gold-light); font-family: "Playfair Display", serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.step h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.step p { color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+/* ── TEAM ── */
+.team-section { background: var(--white); padding: 72px 24px; }
+.team-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 56px; align-items: center; flex-wrap: wrap; }
+.team-img { flex: 1 1 380px; }
+.team-img img { width: 100%; border-radius: 16px; max-width: 460px; display: block; }
+.team-content { flex: 1 1 400px; }
+.team-content > h2 { font-family: "Playfair Display", serif; font-size: 30px; color: #0b1c15; margin-bottom: 28px; line-height: 1.3; }
+.leader-mini { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f0f0; }
+.leader-mini:last-of-type { border-bottom: none; margin-bottom: 22px; }
+.lm-dot { width: 38px; height: 38px; border-radius: 50%; background: var(--dark-green); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.lm-initials { color: var(--gold-light); font-size: 11px; font-weight: 700; }
+.lm-name { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 2px; }
+.lm-role { font-size: 12px; color: #888; margin-bottom: 6px; }
+.lm-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.lm-tag { background: rgba(26,47,32,0.07); color: var(--dark-green); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.team-note { font-size: 13px; color: #888; font-style: italic; margin-bottom: 24px; }
+
+/* ── PARTNERS ── */
+.partners { padding: 64px 24px; background: var(--light-bg); text-align: center; }
+.partners h2 { font-family: "Playfair Display", serif; color: var(--gold); margin-bottom: 36px; font-size: 30px; }
+.slider { width: 100%; overflow: hidden; max-width: 900px; margin: auto; }
+.slide-track { display: flex; width: calc(250px * 18); animation: scroll 20s linear infinite; }
+.slide { width: 250px; display: flex; justify-content: center; align-items: center; padding: 15px; }
+.slide img { height: 52px; object-fit: contain; opacity: 0.6; transition: opacity 0.3s; }
+.slide img:hover { opacity: 1; }
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ── FOOTER ── */
+footer { background: var(--header-bg); text-align: center; padding: 28px; color: #555; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .wwd-grid { grid-template-columns: 1fr; border-radius: 14px; }
+  .why-row { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 32px; }
+  .steps::before { display: none; }
+  .vs-wrap { grid-template-columns: 1fr; }
+  .vs-col.them { border-radius: 14px 14px 0 0; }
+  .vs-col.us { border-radius: 0 0 14px 14px; }
+  .vs-mid { padding: 10px; flex-direction: row; }
+  .vs-badge { writing-mode: horizontal-tb; transform: none; }
 }
-
-.hero p {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-.hero button {
-  background-color: var(--gold);
-  color: var(--dark-green);
-  border: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.hero button:hover {
-  background-color: var(--blackish);
-  color: var(--white);
-}
-
-/* ===== SERVICES SECTION ===== */
-.services {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 60px;
-  background-color: var(--white);
-  flex-wrap: nowrap;
-  gap: 40px;
-}
-
-.services img {
-  width: 350px;
-  max-width: 100%;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.services-text {
-  max-width: 500px;
-}
-
-.services-text h2 {
-  color: var(--gold);
-  font-size: 26px;
-  margin-bottom: 15px;
-}
-
-.services-text p {
-  color: #333;
-}
-
-.services-text button {
-  margin-top: 20px;
-  background-color: var(--gold);
-  color: var(--white);
-  border: none;
-  padding: 10px 25px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.services-text button:hover {
-  background-color: var(--dark-green);
-}
-
-/* ===== TEAM SECTION ===== */
-.team {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--dark-green);
-  color: var(--white);
-  padding: 80px 60px;
-  flex-wrap: nowrap;
-  gap: 40px;
-}
-
-.team img {
-  width: 300px;
-  max-width: 100%;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.team-text {
-  max-width: 480px;
-}
-
-.team-text p {
-  color: var(--white);
-}
-
-.team-text button {
-  margin-top: 20px;
-  background-color: var(--gold);
-  color: var(--dark-green);
-  border: none;
-  padding: 10px 25px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.team-text button:hover {
-  background-color: var(--blackish);
-  color: var(--white);
-}
-
-/* ===== PARTNERS SECTION ===== */
-.partners {
-  padding: 60px 20px;
-  background: var(--white);
-  text-align: center;
-}
-
-.partners h2 {
-  color: var(--gold);
-  margin-bottom: 30px;
-  font-size: 28px;
-}
-
-.slider {
-  width: 100%;
-  overflow: hidden;
-  max-width: 900px;
-  margin: auto;
-}
-
-.slide-track {
-  display: flex;
-  width: calc(250px * 18);
-  animation: scroll 18s linear infinite;
-}
-
-.slide {
-  width: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-
-.slide img {
-  height: 60px;
-  object-fit: contain;
-}
-
-@keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background-color: var(--light-bg);
-  text-align: center;
-  padding: 30px;
-  color: #555;
-  font-size: 14px;
-}
-
-footer a {
-  color: var(--dark-green);
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-footer a img {
-  width: 25px;
-  vertical-align: middle;
-}
-
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  nav.nav-menu {
-    position: fixed;
-    top: 66px;
-    left: 0;
-    right: 0;
-    background: #0b1c15;
-    flex-direction: column;
-    padding: 18px 0;
-    gap: 12px;
-    display: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 1000;
-  }
-
-  nav.nav-menu.active {
-    display: flex;
-  }
-
-  nav.nav-menu a {
-    display: block;
-    margin: 0;
-    padding: 12px 0;
-    text-align: center;
-    font-size: 16px;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  nav.nav-menu a:hover {
-    color: var(--gold);
-  }
-
-  .nav-inner {
-    flex-wrap: nowrap;
-  }
-
-  body.menu-open {
-    overflow: hidden;
-  }
-
-  .mobile-menu-spacer {
-    height: 0;
-    display: block;
-    width: 100%;
-  }
-
-  body.menu-open .mobile-menu-spacer {
-    height: 200px;
-  }
-
-  /* Hero */
-  .hero h1 {
-    font-size: 36px;
-  }
-  .hero p {
-    font-size: 16px;
-  }
-
-  /* ===== SERVICES — image first, full width ===== */
-  .services {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 20px;
-    text-align: left;
-  }
-
-  .services img {
-    width: 100%;
-    border-radius: 10px;
-    order: -1; /* image always first */
-  }
-
-  .services-text {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .services-text button {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* ===== TEAM — image first, full width ===== */
-  .team {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 20px;
-    text-align: left;
-  }
-
-  .team img {
-    width: 100%;
-    border-radius: 10px;
-    order: -1; /* image always first */
-  }
-
-  .team-text {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .team-text button {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
+  nav.nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero h1 { font-size: 32px; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .why-row { grid-template-columns: 1fr; }
+  .team-inner { flex-direction: column; gap: 32px; }
 }
 </style>
 </head>
@@ -428,111 +230,309 @@ footer a img {
 <!-- HEADER -->
 <header>
   <div class="nav-inner">
-    <div class="brand">
-      <img src="logo.png" alt="Logo">
-      <h1>Queens Way Capital</h1>
-    </div>
-
-    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <a class="brand" href="index.html">
+      <img src="logo.png" alt="Queens Way Capital">
+      <span>Queens Way Capital</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" id="menuBtn">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="service.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </div>
 </header>
 
-<div class="mobile-menu-spacer" aria-hidden="true"></div>
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-brand">
+      <img src="logo.png" alt="Logo">
+      <span>Queens Way Capital</span>
+    </div>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="contact.html">Contact Us</a>
+  </div>
+</div>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <h1>Queens Way Capital</h1>
-  <p>We are an AI and technology advisory helping organisations make smarter investments, scaling, and optimisation decisions. We support startups, investors, and enterprises in unlocking growth, managing risk, and delivering measurable outcomes through technology.</p>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <img src="service1.jpeg" alt="Business Meeting">
-  <div class="services-text">
-    <h2>Our Services</h2>
-    <p>Queens Way Capital offers a range of services to support medium and large enterprises in embracing automation and AI without the need for significant capital expenditure or resource commitment. Our team evaluates startup maturity and scalability using customised models, provides fractional leadership and strategic advisory roles, and develops compelling value propositions for larger customers. Additionally, we assist venture capitalists and funders in optimising ROI and reducing failure risk, while guiding technology companies in capital approaches, fundraising, use case development, and operational enhancement.</p>
-    <button onclick="window.location.href='service.html'">Discover More</button>
+<section class="hero">
+  <span class="hero-tag">Strategic Activation Partner</span>
+  <h1>Connecting <em>Capital, Technology</em> &amp; Growth</h1>
+  <p class="hero-sub">AI &amp; technology advisory for enterprises, investors, and startups across Africa.</p>
+  <div class="hero-chips">
+    <span class="hero-chip">No CapEx Burden</span>
+    <span class="hero-chip">Evidence-Based Direction</span>
+    <span class="hero-chip">Measurable ROI</span>
+  </div>
+  <div class="hero-ctas">
+    <button class="btn-primary" onclick="window.location.href='service.html'">Explore Services</button>
+    <button class="btn-outline-light" onclick="window.location.href='contact.html'">Start a Conversation</button>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team" id="about">
-  <div class="team-text">
-    <p>Meet the skilled team at Queens Way Capital, comprising tech investors, experienced deal makers, and corporate specialists dedicated to driving business transformation through automation and AI adoption. Our professionals are committed to delivering impactful solutions and strategic guidance to propel your business forward.</p>
-    <button onclick="window.location.href='about.html#leadership'">Meet the Team</button>
-  </div>
-  <img src="team.jpg" alt="Team Meeting">
-</section>
-
-<!-- PARTNERS -->
-<section class="partners" id="partners">
-  <h2>Our Partners</h2>
-  <div class="slider">
-    <div class="slide-track">
-      <div class="slide"><img src="aicampus.png"></div>
-      <div class="slide"><img src="empire.png"></div>
-      <div class="slide"><img src="epf.png"></div>
-      <div class="slide"><img src="orcaa.png"></div>
-      <div class="slide"><img src="visiosoft.png"></div>
-      <div class="slide"><img src="digication.png"></div>
-      <div class="slide"><img src="smartview.png"></div>
-      <div class="slide"><img src="paypoint.png"></div>
-      <div class="slide"><img src="TDM.png"></div>
-      <div class="slide"><img src="aicampus.png"></div>
-      <div class="slide"><img src="empire.png"></div>
-      <div class="slide"><img src="epf.png"></div>
-      <div class="slide"><img src="orcaa.png"></div>
-      <div class="slide"><img src="visiosoft.png"></div>
-      <div class="slide"><img src="digication.png"></div>
-      <div class="slide"><img src="smartview.png"></div>
-      <div class="slide"><img src="paypoint.png"></div>
-      <div class="slide"><img src="TDM.png"></div>
+<!-- WHAT WE DO -->
+<section class="what-we-do">
+  <div class="wwd-inner">
+    <span class="section-label">What We Do</span>
+    <h2>Three Service Pillars</h2>
+    <div class="wwd-grid">
+      <div class="wwd-col">
+        <div class="wwd-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Enterprise Activation</h3>
+        <div class="wwd-tags">
+          <span class="wwd-tag">Process Automation</span>
+          <span class="wwd-tag">AI Adoption</span>
+          <span class="wwd-tag">Value Proposition</span>
+          <span class="wwd-tag">Strategic Leadership</span>
+        </div>
+      </div>
+      <div class="wwd-col">
+        <div class="wwd-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Investor Intelligence</h3>
+        <div class="wwd-tags">
+          <span class="wwd-tag">Due Diligence</span>
+          <span class="wwd-tag">Risk &amp; ROI</span>
+          <span class="wwd-tag">Tech Assessments</span>
+          <span class="wwd-tag">Funding Strategy</span>
+        </div>
+      </div>
+      <div class="wwd-col">
+        <div class="wwd-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Startup Readiness</h3>
+        <div class="wwd-tags">
+          <span class="wwd-tag">Maturity Assessment</span>
+          <span class="wwd-tag">Business Model</span>
+          <span class="wwd-tag">Capital Readiness</span>
+          <span class="wwd-tag">Go-to-Market</span>
+        </div>
+      </div>
+    </div>
+    <div class="wwd-cta">
+      <button class="btn-primary" onclick="window.location.href='service.html'">View Full Details</button>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-bottom">
-    <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
+<!-- WHY QWC -->
+<section class="why-qwc">
+  <div class="why-inner">
+    <span class="section-label" style="color:var(--gold)">Our Edge</span>
+    <h2>Why Queens Way Capital</h2>
+    <div class="why-row">
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8c7030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <h4>Proprietary Assessment Models</h4>
+        <p>Built around your context — not generic templates.</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8c7030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h4>Cross-Ecosystem Intelligence</h4>
+        <p>Active in startups, VCs &amp; enterprise — simultaneously.</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8c7030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h4>Results Over Reports</h4>
+        <p>Every engagement anchored to measurable growth targets.</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- VS CONTRAST -->
+<section class="contrast-section">
+  <div class="contrast-inner">
+    <h2>Advisor vs. Activation Partner</h2>
+    <p class="contrast-sub">What sets us apart from a traditional advisory firm.</p>
+    <div class="vs-wrap">
+      <div class="vs-col them">
+        <div class="vs-head">Traditional Advisory</div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Paper-based strategy only
+        </div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          One-lens perspective
+        </div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Heavy CapEx required
+        </div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Generic frameworks
+        </div>
+      </div>
+      <div class="vs-mid"><div class="vs-badge">VS</div></div>
+      <div class="vs-col us">
+        <div class="vs-head">Queens Way Capital</div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Hands-on activation &amp; execution
+        </div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Startup, VC &amp; enterprise fluency
+        </div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Zero balance sheet burden
+        </div>
+        <div class="vs-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#a8873a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Customised maturity models
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <span class="section-label">How It Works</span>
+    <h2>From Uncertainty to Outcome</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Readiness Assessment</h4>
+        <p>Capability, tech fit &amp; market opportunity mapped via proprietary frameworks.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Strategic Direction</h4>
+        <p>A grounded roadmap — aligned leadership, resources &amp; growth objectives.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Activation &amp; Execution</h4>
+        <p>Fractional leadership deployed. Strategy operationalised. ROI tracked.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-inner">
+    <div class="team-img">
+      <img src="team.jpg" alt="Queens Way Capital Team">
+    </div>
+    <div class="team-content">
+      <span class="section-label" style="color:var(--gold)">The Team</span>
+      <h2>Built by Operators.<br>Driven by Outcomes.</h2>
+      <div class="leader-mini">
+        <div class="lm-dot"><span class="lm-initials">AB</span></div>
+        <div>
+          <div class="lm-name">Ahmed Banderker</div>
+          <div class="lm-role">Co-founder &amp; Strategic Advisor</div>
+          <div class="lm-tags">
+            <span class="lm-tag">Corporate Leadership</span>
+            <span class="lm-tag">Investment Strategy</span>
+          </div>
+        </div>
+      </div>
+      <div class="leader-mini">
+        <div class="lm-dot"><span class="lm-initials">NM</span></div>
+        <div>
+          <div class="lm-name">Nathan Mariemuthu</div>
+          <div class="lm-role">Co-founder &amp; Technology Lead</div>
+          <div class="lm-tags">
+            <span class="lm-tag">AI &amp; Automation</span>
+            <span class="lm-tag">Digital Transformation</span>
+          </div>
+        </div>
+      </div>
+      <p class="team-note">Supported by a dynamic team of over 100 innovators and problem-solvers.</p>
+      <button class="btn-dark" onclick="window.location.href='about.html#leadership'">Meet the Team</button>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners">
+  <h2>Our Partners</h2>
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide"><img src="aicampus.png" alt="AI Campus"></div>
+      <div class="slide"><img src="empire.png" alt="Empire"></div>
+      <div class="slide"><img src="epf.png" alt="EPF"></div>
+      <div class="slide"><img src="orcaa.png" alt="Orcaa"></div>
+      <div class="slide"><img src="visiosoft.png" alt="Visiosoft"></div>
+      <div class="slide"><img src="digication.png" alt="Digication"></div>
+      <div class="slide"><img src="smartview.png" alt="Smartview"></div>
+      <div class="slide"><img src="paypoint.png" alt="Paypoint"></div>
+      <div class="slide"><img src="TDM.png" alt="TDM"></div>
+      <div class="slide"><img src="aicampus.png" alt="AI Campus"></div>
+      <div class="slide"><img src="empire.png" alt="Empire"></div>
+      <div class="slide"><img src="epf.png" alt="EPF"></div>
+      <div class="slide"><img src="orcaa.png" alt="Orcaa"></div>
+      <div class="slide"><img src="visiosoft.png" alt="Visiosoft"></div>
+      <div class="slide"><img src="digication.png" alt="Digication"></div>
+      <div class="slide"><img src="smartview.png" alt="Smartview"></div>
+      <div class="slide"><img src="paypoint.png" alt="Paypoint"></div>
+      <div class="slide"><img src="TDM.png" alt="TDM"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:var(--gold-light);text-decoration:underline;">Ferguson Media</a>.</p>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  const body = document.body;
+(function() {
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const closeBtn = document.getElementById('sidebarClose');
 
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('active');
-      body.classList.toggle('menu-open', !expanded);
-    });
-
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-      });
-    });
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-});
-</script>
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
+  menuBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
+})();
+</script>
 </body>
 </html>
