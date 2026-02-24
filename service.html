@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Services | Queens Way Capital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --dark-green: #1a2f20;
+  --mid-green: #243d2c;
   --gold: #8c7030;
-  --gold-light: #a8873a;
+  --gold-light: #c9a84c;
+  --gold-bright: #e2b94a;
   --bg: #041716;
-  --muted: #d7e0d7;
+  --muted: #c8d9c8;
   --white: #ffffff;
   --header-bg: #0b1c15;
 }
@@ -20,13 +22,25 @@
 body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; }
 
 /* ── HEADER ── */
-header { background: var(--header-bg); border-bottom: 1px solid rgba(255,255,255,.07); position: relative; z-index: 1001; }
+header {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1001;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+header.scrolled {
+  background: var(--header-bg);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
 .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand img { height: 44px; }
-.brand span { font-size: 20px; color: var(--gold); font-weight: 700; letter-spacing: 0.3px; }
+.brand span { font-size: 20px; color: var(--gold-light); font-weight: 700; letter-spacing: 0.3px; }
 nav.nav-links { display: flex; align-items: center; gap: 28px; }
-nav.nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.25s; }
+nav.nav-links a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.25s; }
 nav.nav-links a:hover { color: var(--gold-light); }
 .nav-cta { background: var(--gold); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; font-weight: 700 !important; }
 .nav-cta:hover { background: var(--gold-light) !important; }
@@ -43,10 +57,10 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .sidebar-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .sidebar-brand { display: flex; align-items: center; gap: 8px; }
 .sidebar-brand img { height: 32px; }
-.sidebar-brand span { font-size: 14px; color: var(--gold); font-weight: 700; }
+.sidebar-brand span { font-size: 14px; color: var(--gold-light); font-weight: 700; }
 .sidebar-close { width: 32px; height: 32px; background: rgba(255,255,255,0.06); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .sidebar-nav { display: flex; flex-direction: column; padding: 20px 0; flex: 1; }
-.sidebar-nav a { color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
+.sidebar-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
 .sidebar-nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
 .sidebar-nav a:last-child { border-bottom: none; }
 .sidebar-footer { padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -54,57 +68,191 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .sidebar-footer a:hover { background: var(--gold-light); }
 
 /* ── COMMON ── */
-.section-label { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; display: block; }
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; display: block; }
 .btn-primary { background: var(--gold); color: var(--white); border: none; padding: 14px 32px; font-size: 15px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s; }
 .btn-primary:hover { background: var(--gold-light); }
 
 /* ── HERO ── */
-.svc-hero { background: var(--dark-green); text-align: center; padding: 84px 20px 64px; }
-.svc-hero h2 { font-family: "Playfair Display", serif; font-size: 46px; color: var(--gold-light); margin-bottom: 14px; }
-.svc-hero p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+.svc-hero { padding-top: 140px; background: var(--dark-green); text-align: center; padding: 88px 20px 68px; }
+.svc-hero h2 { font-family: "Playfair Display", serif; font-size: 48px; color: var(--gold-bright); margin-bottom: 16px; }
+/* BRIGHT hero text */
+.svc-hero p { color: rgba(255,255,255,0.88); font-size: 18px; max-width: 580px; margin: 0 auto; line-height: 1.75; }
 
 /* ── TABS ── */
-.tabs-section { max-width: 1100px; margin: 64px auto; padding: 0 24px; }
-.tab-nav { display: flex; gap: 0; margin-bottom: 30px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-.tab-btn { flex: 1; padding: 17px 12px; background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.5); font-size: 14px; font-weight: 700; border: none; cursor: pointer; transition: all 0.25s; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); letter-spacing: 0.3px; }
-.tab-btn:last-child { border-right: none; }
-.tab-btn.active { background: var(--dark-green); color: var(--gold-light); }
-.tab-btn:hover:not(.active) { background: rgba(255,255,255,0.06); color: var(--white); }
+.tabs-section { max-width: 1100px; margin: 68px auto; padding: 0 24px; }
+
+.tab-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  /* BRIGHT hint text */
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 14px;
+}
+.tab-hint svg { opacity: 0.5; animation: nudge 1.8s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+
+.tab-nav { display: flex; gap: 12px; margin-bottom: 30px; }
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 14px 16px;
+  background: rgba(255,255,255,0.04);
+  /* BRIGHT inactive tab text */
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 0 0 12px 12px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.tab-btn.active::after { transform: scaleX(1); }
+.tab-btn:hover::after { transform: scaleX(0.5); }
+
+.tab-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+
+.tab-btn .tab-label { font-size: 14px; font-weight: 700; }
+.tab-btn .tab-sub { font-size: 11px; font-weight: 500; opacity: 0.5; letter-spacing: 0.5px; }
+
+.tab-btn.active {
+  background: var(--dark-green);
+  color: var(--gold-bright);
+  border-color: rgba(201,168,76,0.45);
+  box-shadow: 0 0 0 1px rgba(201,168,76,0.2), 0 6px 20px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+}
+.tab-btn.active .tab-icon { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+.tab-btn.active .tab-sub { opacity: 0.75; }
+
+.tab-btn:hover:not(.active) {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+.tab-btn:hover:not(.active) .tab-icon { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.2); }
+
 .tab-panel { display: none; }
-.tab-panel.active { display: grid; grid-template-columns: 380px 1fr; gap: 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+.tab-panel.active {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  animation: panelIn 0.3s ease both;
+}
+@keyframes panelIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .panel-img { background: #0b1c15; }
 .panel-img img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 340px; }
-.panel-body { background: var(--dark-green); padding: 44px 38px; display: flex; flex-direction: column; justify-content: center; }
-.pillar-num { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; }
-.panel-body h3 { font-family: "Playfair Display", serif; font-size: 28px; color: var(--gold-light); margin-bottom: 22px; }
-.outcome-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.outcome-pill { background: rgba(140,112,48,0.12); border: 1px solid rgba(140,112,48,0.28); color: var(--gold-light); font-size: 13px; font-weight: 600; padding: 6px 15px; border-radius: 30px; }
-.svc-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
-.svc-list li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--muted); }
-.svc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-.roi-strip { background: rgba(140,112,48,0.08); border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 0 6px 6px 0; }
-.roi-strip strong { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 5px; }
-.roi-strip span { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.panel-body { background: var(--dark-green); padding: 46px 40px; display: flex; flex-direction: column; justify-content: center; }
+.pillar-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 10px; }
+.panel-body h3 { font-family: "Playfair Display", serif; font-size: 30px; color: var(--gold-bright); margin-bottom: 24px; line-height: 1.25; }
+.outcome-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.outcome-pill { background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.30); color: var(--gold-bright); font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 30px; }
+.svc-list { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 28px; }
+.svc-list li { display: flex; align-items: center; gap: 12px; font-size: 15px; /* BRIGHT list text */ color: rgba(255,255,255,0.88); }
+.svc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold-light); flex-shrink: 0; }
+.roi-strip { background: rgba(201,168,76,0.08); border-left: 3px solid var(--gold-light); padding: 16px 20px; border-radius: 0 8px 8px 0; }
+.roi-strip strong { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-bright); display: block; margin-bottom: 6px; }
+/* BRIGHT ROI strip text */
+.roi-strip span { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.65; }
+
+/* ── AI CAMPUS STRIP ── */
+.campus-strip {
+  max-width: 1100px;
+  margin: 0 auto 0;
+  padding: 0 24px 68px;
+}
+.campus-card {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 16px;
+  padding: 40px 44px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.campus-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright), transparent);
+}
+.campus-icon {
+  width: 64px; height: 64px; flex-shrink: 0;
+  border-radius: 16px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.campus-text h4 { font-family: "Playfair Display", serif; font-size: 22px; color: var(--gold-bright); margin-bottom: 8px; }
+.campus-text p { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.7; }
+.campus-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.campus-badge { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.25); color: var(--gold-light); font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; }
 
 /* ── CTA ── */
-.cta-section { background: var(--dark-green); padding: 80px 24px; text-align: center; }
-.cta-section h3 { font-family: "Playfair Display", serif; font-size: 36px; color: var(--gold-light); margin-bottom: 14px; }
-.cta-section p { color: var(--muted); font-size: 17px; max-width: 520px; margin: 0 auto 30px; line-height: 1.7; }
+.cta-section { background: var(--dark-green); padding: 84px 24px; text-align: center; }
+.cta-section h3 { font-family: "Playfair Display", serif; font-size: 38px; color: var(--gold-bright); margin-bottom: 16px; }
+/* BRIGHT CTA text */
+.cta-section p { color: rgba(255,255,255,0.88); font-size: 18px; max-width: 540px; margin: 0 auto 32px; line-height: 1.75; }
 
 /* ── FOOTER ── */
-footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; padding: 25px; background: var(--header-bg); color: #555; font-size: 15px; }
+footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; padding: 25px; background: var(--header-bg); color: #7a9a7a; font-size: 15px; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav.nav-links { display: none; }
   .hamburger { display: flex; }
-  .svc-hero h2 { font-size: 30px; }
-  .svc-hero p { font-size: 15px; }
-  .tab-btn { font-size: 12px; padding: 12px 6px; }
+  .svc-hero h2 { font-size: 32px; }
+  .svc-hero p { font-size: 16px; }
+  .tab-nav { gap: 8px; }
+  .tab-btn { padding: 14px 8px 12px; }
+  .tab-btn .tab-sub { display: none; }
+  .tab-icon { width: 34px; height: 34px; }
+  .tab-btn .tab-label { font-size: 12px; }
   .tab-panel.active { grid-template-columns: 1fr; }
   .panel-img { height: 200px; }
   .panel-img img { min-height: 200px; }
   .panel-body { padding: 30px 24px; }
+  .campus-card { flex-direction: column; padding: 28px 24px; gap: 20px; }
 }
 </style>
 </head>
@@ -157,23 +305,38 @@ footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; paddin
 <section class="svc-hero">
   <span class="section-label">Growth Pillars</span>
   <h2>Where We Deliver ROI</h2>
-  <p>Three integrated Growth Pillars. Every one anchored to exponential, measurable outcomes.</p>
+  <p>Three integrated Growth Activation Pillars. Every one anchored to exponential, measurable outcomes — operationalised through embedded fractional leadership, not filed-away reports.</p>
 </section>
 
 <!-- TABBED PILLARS -->
 <div class="tabs-section">
+
+  <div class="tab-hint">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 15l6 6m-11-4a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/></svg>
+    Select a growth pillar to explore
+  </div>
+
   <div class="tab-nav">
     <button class="tab-btn active" data-tab="enterprise">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-      Enterprise
+      <div class="tab-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <span class="tab-label">Enterprise</span>
+      <span class="tab-sub">Activation &amp; Growth</span>
     </button>
     <button class="tab-btn" data-tab="investors">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      Investors
+      <div class="tab-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <span class="tab-label">Investors</span>
+      <span class="tab-sub">Intelligence &amp; Portfolio</span>
     </button>
     <button class="tab-btn" data-tab="startups">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:6px"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      Startups
+      <div class="tab-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <span class="tab-label">Startups</span>
+      <span class="tab-sub">Readiness &amp; Scale</span>
     </button>
   </div>
 
@@ -189,14 +352,14 @@ footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; paddin
         <span class="outcome-pill">Agile Execution</span>
       </div>
       <ul class="svc-list">
-        <li><span class="svc-dot"></span>Resource-light AI integration &amp; adoption</li>
+        <li><span class="svc-dot"></span>Resource-light AI integration &amp; adoption — validated in our AI Campus Sandbox first</li>
         <li><span class="svc-dot"></span>Process automation via Exponential Intelligence frameworks</li>
         <li><span class="svc-dot"></span>Value proposition development &amp; market positioning</li>
-        <li><span class="svc-dot"></span>Fractional Executive Acceleration</li>
+        <li><span class="svc-dot"></span>Fractional Executive Acceleration — embedded, not advisory</li>
       </ul>
       <div class="roi-strip">
         <strong>Growth Focus</strong>
-        <span>Activate exponential growth and optimise large-scale AI investments — without the traditional CapEx barrier.</span>
+        <span>Activate exponential growth and optimise large-scale AI investments — without the traditional CapEx barrier or balance sheet risk.</span>
       </div>
     </div>
   </div>
@@ -213,14 +376,14 @@ footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; paddin
         <span class="outcome-pill">Portfolio ROI</span>
       </div>
       <ul class="svc-list">
-        <li><span class="svc-dot"></span>Comprehensive due diligence via the AI Campus Sandbox</li>
+        <li><span class="svc-dot"></span>Comprehensive due diligence powered by our proprietary Maturity Assessment Framework</li>
+        <li><span class="svc-dot"></span>AI Campus Sandbox validation — technology tested before capital is committed</li>
         <li><span class="svc-dot"></span>Strategic portfolio de-risking &amp; capital efficiency frameworks</li>
-        <li><span class="svc-dot"></span>Startup &amp; technology maturity assessments</li>
-        <li><span class="svc-dot"></span>Funding strategy &amp; capital guidance</li>
+        <li><span class="svc-dot"></span>Funding strategy &amp; capital guidance anchored to measurable outcomes</li>
       </ul>
       <div class="roi-strip">
         <strong>Growth Focus</strong>
-        <span>Cross-ecosystem intelligence gives investors a sharper lens on real-world viability — and a validated path to enhanced capital efficiency.</span>
+        <span>Cross-ecosystem intelligence gives investors a sharper lens on real-world viability — and a validated, de-risked path to enhanced capital efficiency.</span>
       </div>
     </div>
   </div>
@@ -237,15 +400,35 @@ footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; paddin
         <span class="outcome-pill">Market Traction</span>
       </div>
       <ul class="svc-list">
-        <li><span class="svc-dot"></span>Maturity assessments &amp; scalability audits</li>
-        <li><span class="svc-dot"></span>Business model &amp; value proposition design</li>
-        <li><span class="svc-dot"></span>Capital readiness &amp; investor preparation</li>
-        <li><span class="svc-dot"></span>Fractional leadership &amp; advisory activation</li>
-        <li><span class="svc-dot"></span>Go-to-market &amp; growth strategy</li>
+        <li><span class="svc-dot"></span>Proprietary maturity assessments &amp; scalability audits — not generic checklists</li>
+        <li><span class="svc-dot"></span>Business model &amp; value proposition design for investor-ready positioning</li>
+        <li><span class="svc-dot"></span>Capital readiness &amp; investor preparation with a clear, validated narrative</li>
+        <li><span class="svc-dot"></span>Fractional leadership &amp; advisory activation — embedded execution</li>
+        <li><span class="svc-dot"></span>Go-to-market &amp; exponential growth strategy</li>
       </ul>
       <div class="roi-strip">
         <strong>Growth Focus</strong>
         <span>Reach investor-ready status faster — with a clear narrative, validated model, and the strategic confidence to dominate the digital frontier.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- AI CAMPUS STRIP -->
+<div class="campus-strip">
+  <div class="campus-card">
+    <div class="campus-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+    </div>
+    <div class="campus-text">
+      <h4>Backed by the AI Campus Sandbox — Our External R&amp;D Engine</h4>
+      <p>Every technology recommendation is tested, broken, and validated in our EPF Tech Hub &amp; AI Campus Sandbox before it ever touches your live environment. Risk-averse CEOs get clear proof of concept — before a single rand commits to the balance sheet. This is the infrastructure no traditional advisory firm can offer.</p>
+      <div class="campus-badges">
+        <span class="campus-badge">Live Tech Testing</span>
+        <span class="campus-badge">Pre-validated AI Adoption</span>
+        <span class="campus-badge">Zero Risk to Live Environment</span>
+        <span class="campus-badge">EPF Tech Hub</span>
       </div>
     </div>
   </div>
@@ -254,17 +437,59 @@ footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; paddin
 <!-- CTA -->
 <section class="cta-section">
   <h3>Ready to Activate Exponential Growth?</h3>
-  <p>Enterprise, investor, or startup — let's move from uncertainty to high-velocity, measurable market outcomes.</p>
+  <p>Enterprise, investor, or startup — let's move from uncertainty to high-velocity, measurable market outcomes. No CapEx burden. No generic frameworks. Just results.</p>
   <button class="btn-primary" onclick="window.location.href='contact.html'">Start the Conversation</button>
 </section>
 
 <footer>
-  <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:var(--gold-light);text-decoration:underline;">Ferguson Media</a>.</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Queens Way Capital">
+        <p>Exponential Growth Activation Partner. Embedding alongside enterprises, investors, and startups to operationalise strategy and deliver measurable outcomes across Africa and beyond.</p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://linkedin.com/company/queenswaycapital" target="_blank" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a class="social-btn" href="mailto:ahmed@queenswaycapital.co.za" aria-label="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a class="social-btn" href="https://instagram.com/queenswaycapital" target="_blank" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="about.html#leadership">Leadership Team</a>
+        <a href="service.html">Enterprise Activation</a>
+        <a href="service.html">Investor Intelligence</a>
+        <a href="service.html">Startup Readiness</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="mailto:ahmed@queenswaycapital.co.za">ahmed@queenswaycapital.co.za</a>
+        <a href="tel:+27211802936">+27 21 180 2936</a>
+        <a href="contact.html">Cape Town — V&A Waterfront</a>
+        <a href="contact.html">Johannesburg — Illovo, Sandton</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank">Ferguson Media</a>.</p>
+      <span class="footer-badge">Growth Activation Partner</span>
+    </div>
+  </div>
 </footer>
 
 <script>
 (function() {
-  // Sidebar
   const menuBtn = document.getElementById('menuBtn');
   const sidebar = document.getElementById('sidebar');
   const overlay = document.getElementById('sidebarOverlay');
@@ -276,7 +501,6 @@ footer { border-top: 1px solid rgba(255,255,255,.07); text-align: center; paddin
   overlay.addEventListener('click', close);
   sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 
-  // Tabs
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
