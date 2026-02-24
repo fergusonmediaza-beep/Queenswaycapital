@@ -1,388 +1,664 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Queens Way Capital</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://www.google.com/recaptcha/api.js?render=6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S"></script>
 
 <style>
 :root {
   --dark-green: #1a2f20;
-  --gold: #b38e42;
-  --orange-gold: #dfa94c;
-  --bg: #041716;
-  --muted: #d7e0d7;
+  --gold: #8c7030;
+  --gold-light: #c9a84c;
+  --gold-bright: #e2b94a;
+  --gold-dim: rgba(201,168,76,0.15);
+  --blackish: #041716;
   --white: #ffffff;
+  --muted: #c8d9c8;
+  --header-bg: #0b1c15;
+  --card-bg: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.08);
+  --border-gold: rgba(201,168,76,0.30);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Inter", sans-serif; background: var(--blackish); color: var(--muted); line-height: 1.6; overflow-x: hidden; }
 
-body {
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* HEADER */
-header {
-  background: var(--dark-green);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-  z-index: 1001;
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand img { height: 46px; }
-.brand h1 { color: var(--gold); font-size: 20px; font-weight: 700; }
-
-nav.nav-menu { display: flex; margin: 0; }
-nav.nav-menu a {
-  color: var(--white);
-  text-decoration: none;
-  margin-left: 22px;
-  font-weight: 600;
-  font-size: 15px;
-}
-nav.nav-menu a:hover { color: var(--gold); }
-
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-.hamburger-line {
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) { opacity: 0; }
-.hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-/* HERO */
-.hero {
-  background: var(--dark-green);
-  text-align: center;
-  padding: 80px 20px 50px;
-}
-.hero h2 {
-  color: var(--gold);
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-.hero p { color: var(--white); font-size: 16px; max-width: 700px; margin: 0 auto; }
-
-/* CONTACT CONTENT */
-.contact-content {
-  max-width: 1100px;
-  margin: 70px auto;
-  padding: 0 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: space-between;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.6;
 }
 
-/* LEFT */
-.contact-info { flex: 1 1 380px; }
-.contact-info h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-.contact-info p { font-size: 16px; color: var(--white); line-height: 1.7; }
-.contact-info span { color: var(--orange-gold); font-weight: 600; }
+/* ── HEADER ── */
+header { background: var(--header-bg); border-bottom: 1px solid var(--border); position: relative; z-index: 1001; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { height: 44px; }
+.brand span { font-size: 20px; color: var(--gold-light); font-weight: 700; letter-spacing: 0.3px; }
+nav.nav-links { display: flex; align-items: center; gap: 28px; }
+nav.nav-links a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.25s; }
+nav.nav-links a:hover { color: var(--gold-light); }
+.nav-cta { background: var(--gold); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; font-weight: 700 !important; transition: background 0.25s !important; }
+.nav-cta:hover { background: var(--gold-light) !important; }
 
-/* FORM */
-.contact-form { flex: 1 1 420px; }
-.contact-form h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-.contact-form form { display: flex; flex-direction: column; }
-.contact-form input,
-.contact-form textarea {
-  background: transparent;
-  border: 0;
-  border-bottom: 2px solid var(--gold);
-  padding: 12px 0;
-  color: var(--white);
-  margin-bottom: 25px;
-  font-size: 16px;
-  outline: none;
-  font-family: "Inter", sans-serif;
-}
-.contact-form input::placeholder,
-.contact-form textarea::placeholder { color: #cccccc; }
+/* ── HAMBURGER ── */
+.hamburger { display: none; flex-direction: column; justify-content: space-around; width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1100; }
+.hamburger-line { width: 100%; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
 
-/* reCAPTCHA v3 legal notice */
-.recaptcha-notice {
-  font-size: 12px;
-  color: #888;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-.recaptcha-notice a { color: var(--gold); text-decoration: none; }
+/* ── SIDEBAR ── */
+.sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1050; opacity: 0; transition: opacity 0.3s; }
+.sidebar-overlay.open { display: block; opacity: 1; }
+.sidebar { position: fixed; top: 0; right: -280px; width: 260px; height: 100%; background: var(--header-bg); z-index: 1060; display: flex; flex-direction: column; transition: right 0.32s cubic-bezier(0.4,0,0.2,1); border-left: 1px solid var(--border); }
+.sidebar.open { right: 0; }
+.sidebar-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.sidebar-brand { display: flex; align-items: center; gap: 8px; }
+.sidebar-brand img { height: 32px; }
+.sidebar-brand span { font-size: 14px; color: var(--gold-light); font-weight: 700; }
+.sidebar-close { width: 32px; height: 32px; background: rgba(255,255,255,0.06); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.sidebar-nav { display: flex; flex-direction: column; padding: 20px 0; flex: 1; }
+.sidebar-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
+.sidebar-nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+.sidebar-nav a:last-child { border-bottom: none; }
+.sidebar-footer { padding: 20px 24px; border-top: 1px solid var(--border); }
+.sidebar-footer a { display: block; background: var(--gold); color: var(--white); text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.25s; }
+.sidebar-footer a:hover { background: var(--gold-light); }
 
-.form-error {
-  color: #ff6b6b;
-  font-size: 13px;
-  margin-bottom: 15px;
-  display: none;
+/* ── HERO ── */
+.contact-hero { padding-top: 140px; position: relative; z-index: 1; background: var(--dark-green); padding: 92px 24px 84px; text-align: center; overflow: hidden; }
+.contact-hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(201,168,76,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(201,168,76,0.07) 1px, transparent 1px);
+  background-size: 80px 80px; z-index: 0;
 }
-
-.contact-form button {
-  background: var(--gold);
-  border: none;
-  color: var(--dark-green);
-  padding: 14px 25px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
+.contact-hero::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-55%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201,168,76,0.11) 0%, transparent 70%);
+  z-index: 0;
 }
-.contact-form button:hover { background: var(--orange-gold); }
-.contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+.hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
 
-.form-success {
-  display: none;
-  background: rgba(179, 142, 66, 0.15);
-  border: 1px solid var(--gold);
-  border-radius: 8px;
-  padding: 18px 20px;
-  color: var(--gold);
-  font-size: 15px;
-  margin-top: 16px;
-  text-align: center;
-}
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; display: block; }
+.label-rule { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 22px; }
+.label-rule::before, .label-rule::after { content: ''; width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.label-rule::after { background: linear-gradient(90deg, var(--gold), transparent); }
 
-/* Hide floating badge (allowed when showing the notice text above) */
+.contact-hero h1 { font-family: "Playfair Display", serif; font-size: 54px; font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+.contact-hero h1 em { color: var(--gold-bright); font-style: italic; }
+/* BRIGHT hero paragraph */
+.contact-hero p { font-size: 17px; color: rgba(255,255,255,0.88); max-width: 520px; margin: 0 auto; line-height: 1.8; font-weight: 400; }
+
+.hero-stats { display: flex; justify-content: center; gap: 0; margin-top: 52px; border: 1px solid var(--border-gold); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
+.hero-stat { flex: 1; padding: 22px 16px; border-right: 1px solid var(--border-gold); text-align: center; transition: background 0.25s; }
+.hero-stat:last-child { border-right: none; }
+.hero-stat:hover { background: rgba(201,168,76,0.06); }
+.hs-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+.hs-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 5px; }
+/* BRIGHT stat values */
+.hs-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+/* ── MAIN CONTENT ── */
+.contact-main { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 84px 24px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+
+/* ── LEFT: INFO PANEL ── */
+.info-panel h2 { font-family: "Playfair Display", serif; font-size: 34px; color: var(--white); margin-bottom: 16px; line-height: 1.25; }
+/* BRIGHT info panel paragraph */
+.info-panel > p { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 40px; }
+
+.contact-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+.contact-card { display: flex; align-items: flex-start; gap: 18px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; transition: border-color 0.3s, background 0.3s; text-decoration: none; }
+.contact-card:hover { border-color: var(--border-gold); background: rgba(201,168,76,0.05); }
+.card-icon-wrap { width: 42px; height: 42px; border-radius: 10px; background: rgba(201,168,76,0.10); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.card-label { font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 5px; }
+/* BRIGHT card values */
+.card-value { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; font-weight: 500; }
+
+.response-badge { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: rgba(201,168,76,0.08); border: 1px solid var(--border-gold); border-radius: 10px; margin-bottom: 40px; }
+.response-dot { width: 8px; height: 8px; border-radius: 50%; background: #4caf7d; flex-shrink: 0; box-shadow: 0 0 8px #4caf7d; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 6px #4caf7d; } 50% { box-shadow: 0 0 14px #4caf7d; } }
+/* BRIGHT response badge text */
+.response-badge span { font-size: 13px; color: rgba(255,255,255,0.78); font-weight: 500; }
+.response-badge strong { color: var(--gold-bright); }
+
+.inquiry-types p { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.40); margin-bottom: 12px; }
+.inquiry-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.inq-tag { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: rgba(255,255,255,0.65); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 30px; transition: all 0.2s; cursor: default; }
+.inq-tag:hover { border-color: var(--border-gold); color: var(--gold-bright); background: rgba(201,168,76,0.07); }
+.inq-tag.active { background: rgba(201,168,76,0.12); border-color: var(--border-gold); color: var(--gold-bright); }
+
+/* ── RIGHT: FORM PANEL ── */
+.form-panel { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 16px; padding: 44px 40px; position: relative; overflow: hidden; }
+.form-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent); }
+.form-panel h2 { font-family: "Playfair Display", serif; font-size: 26px; color: var(--white); margin-bottom: 8px; }
+/* BRIGHT form subtext */
+.form-panel > p { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 32px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field-group { margin-bottom: 22px; }
+.field-group label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.50); margin-bottom: 8px; }
+.field-group input, .field-group textarea, .field-group select { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 13px 16px; color: var(--white); font-size: 15px; font-family: "Inter", sans-serif; outline: none; transition: border-color 0.25s, background 0.25s; -webkit-appearance: none; }
+.field-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+.field-group select option { background: var(--dark-green); color: var(--white); }
+.field-group input::placeholder, .field-group textarea::placeholder { color: rgba(255,255,255,0.28); }
+.field-group input:focus, .field-group textarea:focus, .field-group select:focus { border-color: var(--border-gold); background: rgba(201,168,76,0.06); }
+.field-group textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+.char-counter { font-size: 11px; color: rgba(255,255,255,0.30); text-align: right; margin-top: 6px; }
+.char-counter.warn { color: var(--gold-bright); }
+
+.recaptcha-notice { font-size: 11px; color: rgba(255,255,255,0.32); margin-bottom: 22px; line-height: 1.65; }
+.recaptcha-notice a { color: rgba(201,168,76,0.7); text-decoration: none; }
+.recaptcha-notice a:hover { color: var(--gold-light); }
+
+.form-error { display: none; background: rgba(255,107,107,0.10); border: 1px solid rgba(255,107,107,0.30); border-radius: 6px; padding: 12px 16px; color: #ff9a9a; font-size: 13px; margin-bottom: 16px; align-items: center; gap: 10px; }
+.form-error.visible { display: flex; }
+
+.btn-submit { width: 100%; background: var(--gold); color: var(--white); border: none; padding: 16px 32px; font-size: 15px; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.25s, transform 0.15s; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 0.3px; position: relative; overflow: hidden; }
+.btn-submit:hover { background: var(--gold-light); }
+.btn-submit:active { transform: scale(0.99); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.btn-submit.loading .spinner { display: block; }
+.btn-submit.loading .btn-text { opacity: 0.6; }
+
+.form-success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 36px 20px; gap: 14px; }
+.form-success.visible { display: flex; }
+.success-circle { width: 64px; height: 64px; border-radius: 50%; background: rgba(76,175,125,0.10); border: 2px solid rgba(76,175,125,0.4); display: flex; align-items: center; justify-content: center; }
+.form-success h3 { font-family: "Playfair Display", serif; font-size: 24px; color: var(--white); }
+.form-success p { font-size: 14px; color: rgba(255,255,255,0.60); max-width: 320px; line-height: 1.7; }
+
 .grecaptcha-badge { visibility: hidden !important; }
 
-/* FOOTER */
+/* ── OFFICES STRIP ── */
+.offices-strip { position: relative; z-index: 1; background: var(--dark-green); border-top: 1px solid var(--border); padding: 68px 24px; }
+.offices-inner { max-width: 1100px; margin: 0 auto; }
+.offices-inner > .strip-head { text-align: center; margin-bottom: 48px; }
+.strip-head h2 { font-family: "Playfair Display", serif; font-size: 34px; color: var(--gold-bright); margin-bottom: 10px; }
+/* BRIGHT strip subtext */
+.strip-head p { font-size: 15px; color: rgba(255,255,255,0.65); }
+.offices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.office-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px 28px 24px; transition: border-color 0.3s; position: relative; overflow: hidden; }
+.office-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-light), transparent); }
+.office-card:hover { border-color: var(--border-gold); }
+.office-city { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.office-city::after { content: ''; height: 1px; flex: 1; background: var(--border-gold); }
+.office-card h3 { font-family: "Playfair Display", serif; font-size: 20px; color: var(--white); margin-bottom: 14px; }
+.office-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; /* BRIGHT office detail text */ color: rgba(255,255,255,0.78); line-height: 1.6; }
+.office-detail svg { margin-top: 2px; flex-shrink: 0; }
+
+
+
+
+
+/* ── FOOTER ── */
 footer {
-  background: var(--dark-green);
-  text-align: center;
-  padding: 28px;
-  color: var(--white);
+  background: var(--header-bg);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 64px 24px 28px;
   font-size: 14px;
-  margin-top: 70px;
 }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 52px; }
+.footer-brand img { height: 42px; margin-bottom: 14px; display: block; }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 260px; margin-bottom: 22px; }
+.footer-social { display: flex; gap: 10px; }
+.social-btn { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.25s, border-color 0.25s; text-decoration: none; }
+.social-btn:hover { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 18px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.60); text-decoration: none; font-size: 14px; margin-bottom: 11px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-col a:last-child { margin-bottom: 0; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { color: rgba(255,255,255,0.35); font-size: 13px; }
+.footer-bottom a { color: var(--gold-light); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold-bright); }
+.footer-badge { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.25); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) { .contact-main { grid-template-columns: 1fr; gap: 40px; } .offices-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { nav.nav-links { display: none; } .hamburger { display: flex; } .contact-hero h1 { font-size: 34px; } .hero-stats { flex-wrap: wrap; } .hero-stat { flex: 1 1 45%; } .form-row { grid-template-columns: 1fr; } .form-panel { padding: 28px 22px; } }
+@media (max-width: 480px) { .contact-hero { padding: 72px 20px 64px; } .contact-hero h1 { font-size: 28px; } .hero-stat { flex: 1 1 100%; border-right: none; border-bottom: 1px solid var(--border-gold); } .hero-stat:last-child { border-bottom: none; } }
 
-  nav.nav-menu {
-    position: fixed;
-    top: 66px;
-    left: 0;
-    right: 0;
-    background: var(--dark-green);
-    flex-direction: column;
-    padding: 18px 0;
-    gap: 12px;
-    display: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 1000;
-  }
-  nav.nav-menu.active { display: flex; }
-  nav.nav-menu a {
-    display: block;
-    margin: 0;
-    padding: 12px 0;
-    text-align: center;
-    font-size: 16px;
-  }
-  .nav-inner { flex-wrap: nowrap; }
-  body.menu-open { overflow: hidden; }
-  .mobile-menu-spacer { height: 0; display: block; width: 100%; }
-  body.menu-open .mobile-menu-spacer { height: 200px; }
-
-  .contact-content { flex-direction: column; }
-  .hero h2 { font-size: 28px; }
-  .hero p { font-size: 14px; }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-inner { animation: fadeUp 0.6s ease both; }
+.contact-main { animation: fadeUp 0.6s ease 0.1s both; }
 </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="nav-inner">
-    <div class="brand">
-      <img src="logo.png" alt="Queens Way Capital Logo">
-      <h1>Queens Way Capital</h1>
-    </div>
-    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <a class="brand" href="index.html">
+      <img src="logo.png" alt="Queens Way Capital">
+      <span>Queens Way Capital</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </nav>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="service.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </div>
 </header>
 
-<div class="mobile-menu-spacer" aria-hidden="true"></div>
+<!-- SIDEBAR -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-brand">
+      <img src="logo.png" alt="Logo">
+      <span>Queens Way Capital</span>
+    </div>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="contact.html">Contact Us</a>
+  </div>
+</div>
 
-<section class="hero">
-  <h2>Contact Us</h2>
-  <p>We'd love to hear from you. Whether you have a question, proposal, or want to collaborate — reach out anytime.</p>
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="hero-inner">
+    <div class="label-rule">
+      <span class="section-label">Get In Touch</span>
+    </div>
+    <h1>Start the <em>Conversation.</em><br>Activate Growth.</h1>
+    <p>Whether you're an enterprise, investor, or startup — we embed alongside you to map a clear path from uncertainty to exponential, measurable outcomes.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="hs-label">Response Time</div>
+        <div class="hs-value">Within 24 hours</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="hs-label">Team</div>
+        <div class="hs-value">100+ Innovators</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="hs-label">Offices</div>
+        <div class="hs-value">Cape Town &amp; Joburg</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="hs-label">Focus</div>
+        <div class="hs-value">Africa &amp; Beyond</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="contact-content">
+<!-- MAIN CONTACT SECTION -->
+<section class="contact-main">
 
-  <div class="contact-info">
-    <h3>Get in Touch</h3>
-    <p>
-      <span>Location:</span><br><br>
-      Cape Town Office<br>
-      3rd Floor, 7 West Quay Road, Waterfront<br><br>
-      Johannesburg Office<br>
-      35 Ferguson Road, Illovo, Sandton<br><br>
-      <span>Phone:</span><br>
-      +27 21 180 2936
-    </p>
+  <!-- LEFT: Info -->
+  <div class="info-panel">
+    <span class="section-label">How to Reach Us</span>
+    <h2>Let's Build Something Exponential Together</h2>
+    <p>From a discovery conversation to a full activation engagement — every growth journey starts with a single message. We respond to every serious inquiry personally. No automated replies, no junior handoffs.</p>
+
+    <div class="contact-cards">
+      <a class="contact-card" href="/cdn-cgi/l/email-protection#debfb6b3bbba9eafabbbbbb0ada9bfa7bdbfaeb7aabfb2f0bdb1f0a4bf">
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="card-content">
+          <div class="card-label">Email</div>
+          <div class="card-value"><span class="__cf_email__" data-cfemail="1071787d757450616575757e636771697371607964717c3e737f3e6a71">[email&#160;protected]</span></div>
+        </div>
+      </a>
+      <div class="contact-card">
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22L6.61 2A2 2 0 0 1 8.5 3.5l.93 2.72a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45l2.72.93A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="card-content">
+          <div class="card-label">Phone</div>
+          <div class="card-value">+27 21 180 2936</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="card-content">
+          <div class="card-label">Cape Town</div>
+          <div class="card-value">3rd Floor, 7 West Quay Road, Waterfront</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="card-content">
+          <div class="card-label">Johannesburg</div>
+          <div class="card-value">35 Ferguson Road, Illovo, Sandton</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="response-badge">
+      <div class="response-dot"></div>
+      <span>We typically respond within <strong>24 hours</strong> of receiving your message.</span>
+    </div>
+
+    <div class="inquiry-types">
+      <p>I'm reaching out about</p>
+      <div class="inquiry-tags">
+        <span class="inq-tag active">Enterprise Activation</span>
+        <span class="inq-tag">Investor Intelligence</span>
+        <span class="inq-tag">Startup Readiness</span>
+        <span class="inq-tag">Fractional Leadership</span>
+        <span class="inq-tag">Partnership</span>
+        <span class="inq-tag">General Enquiry</span>
+      </div>
+    </div>
   </div>
 
-  <div class="contact-form">
-    <h3>Send a Message</h3>
-    <form id="contactForm" novalidate>
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+  <!-- RIGHT: Form -->
+  <div class="form-panel">
+    <h2>Send a Message</h2>
+    <p>Fill in the form and our team will be in touch shortly. Every inquiry is reviewed personally.</p>
 
-      <!-- Required notice when hiding the reCAPTCHA badge -->
+    <form id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="field-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="Your company" autocomplete="organization">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@company.com" required autocomplete="email">
+      </div>
+
+      <div class="field-group">
+        <label for="inquiry">Enquiry Type</label>
+        <select id="inquiry">
+          <option value="" disabled selected>Select an enquiry type</option>
+          <option value="enterprise">Enterprise Activation</option>
+          <option value="investor">Investor Intelligence</option>
+          <option value="startup">Startup Readiness</option>
+          <option value="fractional">Fractional Leadership</option>
+          <option value="partnership">Partnership</option>
+          <option value="general">General Enquiry</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Tell us about your growth ambitions, challenges, or how you'd like to work with us…" required maxlength="1000"></textarea>
+        <div class="char-counter" id="charCounter">0 / 1000</div>
+      </div>
+
       <p class="recaptcha-notice">
-        This site is protected by reCAPTCHA and the Google
-        <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
-        <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+        Protected by reCAPTCHA — Google
+        <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> &amp;
+        <a href="https://policies.google.com/terms" target="_blank">Terms</a> apply.
       </p>
 
-      <p class="form-error" id="formError"></p>
+      <div class="form-error" id="formError">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span id="formErrorText"></span>
+      </div>
 
-      <button type="submit" id="submitBtn">Send Message</button>
+      <button type="submit" class="btn-submit" id="submitBtn">
+        <div class="spinner"></div>
+        <span class="btn-text">Send Message</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
 
       <div class="form-success" id="formSuccess">
-        ✓ Your message has been sent! We'll be in touch shortly.
+        <div class="success-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4caf7d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Message Sent.</h3>
+        <p>Thank you for reaching out. Our team will review your message and get back to you within 24 hours.</p>
       </div>
     </form>
   </div>
-
 </section>
 
+<!-- OFFICES STRIP -->
+<section class="offices-strip">
+  <div class="offices-inner">
+    <div class="strip-head">
+      <span class="section-label">Our Presence</span>
+      <h2>Two Offices. One Mission.</h2>
+      <p>Strategically positioned across South Africa's two premier business hubs.</p>
+    </div>
+    <div class="offices-grid">
+      <div class="office-card">
+        <div class="office-city">Cape Town</div>
+        <h3>Waterfront Office</h3>
+        <div class="office-detail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          3rd Floor, 7 West Quay Road,<br>V&amp;A Waterfront, Cape Town
+        </div>
+        <div class="office-detail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22L6.61 2A2 2 0 0 1 8.5 3.5l.93 2.72a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45l2.72.93A2 2 0 0 1 22 16.92z"/></svg>
+          +27 21 180 2936
+        </div>
+      </div>
+      <div class="office-card">
+        <div class="office-city">Johannesburg</div>
+        <h3>Sandton Office</h3>
+        <div class="office-detail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          35 Ferguson Road,<br>Illovo, Sandton
+        </div>
+        <div class="office-detail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22L6.61 2A2 2 0 0 1 8.5 3.5l.93 2.72a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45l2.72.93A2 2 0 0 1 22 16.92z"/></svg>
+          +27 21 180 2936
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <footer>
-  <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank" style="color:#b38e42;text-decoration:underline;">Ferguson Media</a>.</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Queens Way Capital">
+        <p>Exponential Growth Activation Partner. Embedding alongside enterprises, investors, and startups to operationalise strategy and deliver measurable outcomes across Africa and beyond.</p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://linkedin.com/company/queenswaycapital" target="_blank" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a class="social-btn" href="mailto:ahmed@queenswaycapital.co.za" aria-label="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a class="social-btn" href="https://instagram.com/queenswaycapital" target="_blank" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="about.html#leadership">Leadership Team</a>
+        <a href="service.html">Enterprise Activation</a>
+        <a href="service.html">Investor Intelligence</a>
+        <a href="service.html">Startup Readiness</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="mailto:ahmed@queenswaycapital.co.za">ahmed@queenswaycapital.co.za</a>
+        <a href="tel:+27211802936">+27 21 180 2936</a>
+        <a href="contact.html">Cape Town — V&amp;A Waterfront</a>
+        <a href="contact.html">Johannesburg — Illovo, Sandton</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank">Ferguson Media</a>.</p>
+      <span class="footer-badge">Growth Activation Partner</span>
+    </div>
+  </div>
 </footer>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S"></script>
 <script>
 const SITE_KEY = '6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Hamburger ── */
-  const hamburger  = document.querySelector('.hamburger');
-  const navMenu    = document.querySelector('.nav-menu');
-  const body       = document.body;
+  /* Sidebar */
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const closeBtn = document.getElementById('sidebarClose');
+  const openSidebar  = () => { sidebar.classList.add('open');  overlay.classList.add('open');  document.body.style.overflow = 'hidden'; };
+  const closeSidebar = () => { sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; };
+  menuBtn.addEventListener('click', openSidebar);
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
 
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-      navMenu.classList.toggle('active');
-      body.classList.toggle('menu-open', !expanded);
-    });
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-      });
-    });
-  }
+  /* Transparent nav scroll effect */
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
 
-  /* ── Form ── */
+  /* Inquiry tag selector */
+  const inqTags = document.querySelectorAll('.inq-tag');
+  const inquirySelect = document.getElementById('inquiry');
+  const tagToValue = {
+    'Enterprise Activation': 'enterprise',
+    'Investor Intelligence': 'investor',
+    'Startup Readiness': 'startup',
+    'Fractional Leadership': 'fractional',
+    'Partnership': 'partnership',
+    'General Enquiry': 'general'
+  };
+  inqTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      inqTags.forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      const val = tagToValue[tag.textContent.trim()];
+      if (val) inquirySelect.value = val;
+    });
+  });
+
+  /* Character counter */
+  const msgField = document.getElementById('message');
+  const charCounter = document.getElementById('charCounter');
+  msgField.addEventListener('input', () => {
+    const len = msgField.value.length;
+    charCounter.textContent = len + ' / 1000';
+    charCounter.classList.toggle('warn', len > 800);
+  });
+
+  /* Form submit */
   const form        = document.getElementById('contactForm');
   const submitBtn   = document.getElementById('submitBtn');
   const formError   = document.getElementById('formError');
+  const formErrorTx = document.getElementById('formErrorText');
   const formSuccess = document.getElementById('formSuccess');
+
+  function showError(msg) { formErrorTx.textContent = msg; formError.classList.add('visible'); }
+  function hideError() { formError.classList.remove('visible'); }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    formError.style.display = 'none';
-    formSuccess.style.display = 'none';
+    hideError();
+    formSuccess.classList.remove('visible');
 
     const name    = document.getElementById('name').value.trim();
     const email   = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+    const message = msgField.value.trim();
 
-    if (!name || !email || !message) {
-      formError.textContent = 'Please fill in all fields.';
-      formError.style.display = 'block';
-      return;
-    }
+    if (!name)    return showError('Please enter your full name.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showError('Please enter a valid email address.');
+    if (!message) return showError('Please write your message before sending.');
 
+    submitBtn.classList.add('loading');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
 
     try {
-      // reCAPTCHA v3 — runs invisibly, returns a token
       await new Promise(resolve => grecaptcha.ready(resolve));
       const token = await grecaptcha.execute(SITE_KEY, { action: 'contact_form' });
 
-      // Token received — open mail client
-      const mailtoLink = `mailto:ahmed@queenswaycapital.co.za`
-        + `?subject=${encodeURIComponent('Contact Form - ' + name)}`
-        + `&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+      const company  = document.getElementById('company').value.trim();
+      const inquiry  = document.getElementById('inquiry').value;
+      const inqLabel = inquirySelect.options[inquirySelect.selectedIndex]?.text || '';
+
+      const body = [
+        'Name: ' + name,
+        company ? 'Company: ' + company : '',
+        'Email: ' + email,
+        inqLabel ? 'Enquiry Type: ' + inqLabel : '',
+        '',
+        'Message:',
+        message
+      ].filter(Boolean).join('\n');
+
+      const mailtoLink = 'mailto:ahmed@queenswaycapital.co.za'
+        + '?subject=' + encodeURIComponent('Contact Form — ' + name + (company ? ' (' + company + ')' : ''))
+        + '&body=' + encodeURIComponent(body);
 
       window.location.href = mailtoLink;
 
       setTimeout(() => {
-        formSuccess.style.display = 'block';
-        form.reset();
+        form.querySelectorAll('input, textarea, select').forEach(el => el.value = '');
+        charCounter.textContent = '0 / 1000';
+        inqTags.forEach(t => t.classList.remove('active'));
+        inqTags[0].classList.add('active');
+        submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-      }, 800);
+        formSuccess.classList.add('visible');
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 900);
 
     } catch (err) {
-      formError.textContent = 'reCAPTCHA failed. Please refresh and try again.';
-      formError.style.display = 'block';
+      showError('reCAPTCHA verification failed. Please refresh the page and try again.');
+      submitBtn.classList.remove('loading');
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
     }
   });
 
 });
 </script>
-
 </body>
 </html>
