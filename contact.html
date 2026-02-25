@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://www.google.com/recaptcha/api.js?render=6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S"></script>
-
 <style>
 :root {
   --dark-green: #1a2f20;
@@ -72,20 +71,8 @@ nav.nav-links a:hover { color: var(--gold-light); }
 
 /* ── HERO ── */
 .contact-hero { padding-top: 140px; position: relative; z-index: 1; background: var(--dark-green); padding: 92px 24px 84px; text-align: center; overflow: hidden; }
-.contact-hero::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to right, rgba(201,168,76,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(201,168,76,0.07) 1px, transparent 1px);
-  background-size: 80px 80px; z-index: 0;
-}
-.contact-hero::after {
-  content: '';
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-55%);
-  width: 700px; height: 400px;
-  background: radial-gradient(ellipse, rgba(201,168,76,0.11) 0%, transparent 70%);
-  z-index: 0;
-}
+.contact-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(201,168,76,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(201,168,76,0.07) 1px, transparent 1px); background-size: 80px 80px; z-index: 0; }
+.contact-hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-55%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(201,168,76,0.11) 0%, transparent 70%); z-index: 0; }
 .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
 
 .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; display: block; }
@@ -95,7 +82,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
 
 .contact-hero h1 { font-family: "Playfair Display", serif; font-size: 54px; font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
 .contact-hero h1 em { color: var(--gold-bright); font-style: italic; }
-/* BRIGHT hero paragraph */
 .contact-hero p { font-size: 17px; color: rgba(255,255,255,0.88); max-width: 520px; margin: 0 auto; line-height: 1.8; font-weight: 400; }
 
 .hero-stats { display: flex; justify-content: center; gap: 0; margin-top: 52px; border: 1px solid var(--border-gold); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
@@ -104,7 +90,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .hero-stat:hover { background: rgba(201,168,76,0.06); }
 .hs-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
 .hs-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 5px; }
-/* BRIGHT stat values */
 .hs-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
 
 /* ── MAIN CONTENT ── */
@@ -112,7 +97,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
 
 /* ── LEFT: INFO PANEL ── */
 .info-panel h2 { font-family: "Playfair Display", serif; font-size: 34px; color: var(--white); margin-bottom: 16px; line-height: 1.25; }
-/* BRIGHT info panel paragraph */
 .info-panel > p { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 40px; }
 
 .contact-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
@@ -120,37 +104,26 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .contact-card:hover { border-color: var(--border-gold); background: rgba(201,168,76,0.05); }
 .card-icon-wrap { width: 42px; height: 42px; border-radius: 10px; background: rgba(201,168,76,0.10); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .card-label { font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 5px; }
-/* BRIGHT card values */
 .card-value { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; font-weight: 500; }
 
-.response-badge { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: rgba(201,168,76,0.08); border: 1px solid var(--border-gold); border-radius: 10px; margin-bottom: 40px; }
+.response-badge { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: rgba(201,168,76,0.08); border: 1px solid var(--border-gold); border-radius: 10px; }
 .response-dot { width: 8px; height: 8px; border-radius: 50%; background: #4caf7d; flex-shrink: 0; box-shadow: 0 0 8px #4caf7d; animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { box-shadow: 0 0 6px #4caf7d; } 50% { box-shadow: 0 0 14px #4caf7d; } }
-/* BRIGHT response badge text */
 .response-badge span { font-size: 13px; color: rgba(255,255,255,0.78); font-weight: 500; }
 .response-badge strong { color: var(--gold-bright); }
-
-.inquiry-types p { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.40); margin-bottom: 12px; }
-.inquiry-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.inq-tag { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: rgba(255,255,255,0.65); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 30px; transition: all 0.2s; cursor: default; }
-.inq-tag:hover { border-color: var(--border-gold); color: var(--gold-bright); background: rgba(201,168,76,0.07); }
-.inq-tag.active { background: rgba(201,168,76,0.12); border-color: var(--border-gold); color: var(--gold-bright); }
 
 /* ── RIGHT: FORM PANEL ── */
 .form-panel { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 16px; padding: 44px 40px; position: relative; overflow: hidden; }
 .form-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), transparent); }
 .form-panel h2 { font-family: "Playfair Display", serif; font-size: 26px; color: var(--white); margin-bottom: 8px; }
-/* BRIGHT form subtext */
 .form-panel > p { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 32px; }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .field-group { margin-bottom: 22px; }
 .field-group label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: rgba(255,255,255,0.50); margin-bottom: 8px; }
 .field-group input, .field-group textarea, .field-group select { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 13px 16px; color: var(--white); font-size: 15px; font-family: "Inter", sans-serif; outline: none; transition: border-color 0.25s, background 0.25s; -webkit-appearance: none; }
-.field-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
-.field-group select option { background: var(--dark-green); color: var(--white); }
 .field-group input::placeholder, .field-group textarea::placeholder { color: rgba(255,255,255,0.28); }
-.field-group input:focus, .field-group textarea:focus, .field-group select:focus { border-color: var(--border-gold); background: rgba(201,168,76,0.06); }
+.field-group input:focus, .field-group textarea:focus { border-color: var(--border-gold); background: rgba(201,168,76,0.06); }
 .field-group textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
 
 .char-counter { font-size: 11px; color: rgba(255,255,255,0.30); text-align: right; margin-top: 6px; }
@@ -186,7 +159,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .offices-inner { max-width: 1100px; margin: 0 auto; }
 .offices-inner > .strip-head { text-align: center; margin-bottom: 48px; }
 .strip-head h2 { font-family: "Playfair Display", serif; font-size: 34px; color: var(--gold-bright); margin-bottom: 10px; }
-/* BRIGHT strip subtext */
 .strip-head p { font-size: 15px; color: rgba(255,255,255,0.65); }
 .offices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .office-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px 28px 24px; transition: border-color 0.3s; position: relative; overflow: hidden; }
@@ -195,22 +167,13 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .office-city { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .office-city::after { content: ''; height: 1px; flex: 1; background: var(--border-gold); }
 .office-card h3 { font-family: "Playfair Display", serif; font-size: 20px; color: var(--white); margin-bottom: 14px; }
-.office-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; /* BRIGHT office detail text */ color: rgba(255,255,255,0.78); line-height: 1.6; }
+.office-detail { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; }
 .office-detail svg { margin-top: 2px; flex-shrink: 0; }
 
-
-
-
-
 /* ── FOOTER ── */
-footer {
-  background: var(--header-bg);
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 64px 24px 28px;
-  font-size: 14px;
-}
+footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 24px 28px; font-size: 14px; }
 .footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 52px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 52px; }
 .footer-brand img { height: 42px; margin-bottom: 14px; display: block; }
 .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 260px; margin-bottom: 22px; }
 .footer-social { display: flex; gap: 10px; }
@@ -326,10 +289,6 @@ footer {
     <p>From a discovery conversation to a full activation engagement — every growth journey starts with a single message. We respond to every serious inquiry personally. No automated replies, no junior handoffs.</p>
 
     <div class="contact-cards">
-
-
-
-      </a>
       <div class="contact-card">
         <div class="card-icon-wrap">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22L6.61 2A2 2 0 0 1 8.5 3.5l.93 2.72a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45l2.72.93A2 2 0 0 1 22 16.92z"/></svg>
@@ -363,18 +322,6 @@ footer {
       <div class="response-dot"></div>
       <span>We typically respond within <strong>24 hours</strong> of receiving your message.</span>
     </div>
-
-    <div class="inquiry-types">
-      <p>I'm reaching out about</p>
-      <div class="inquiry-tags">
-        <span class="inq-tag active">Enterprise Activation</span>
-        <span class="inq-tag">Investor Intelligence</span>
-        <span class="inq-tag">Startup Readiness</span>
-        <span class="inq-tag">Fractional Leadership</span>
-        <span class="inq-tag">Partnership</span>
-        <span class="inq-tag">General Enquiry</span>
-      </div>
-    </div>
   </div>
 
   <!-- RIGHT: Form -->
@@ -400,21 +347,8 @@ footer {
       </div>
 
       <div class="field-group">
-        <label for="inquiry">Enquiry Type</label>
-        <select id="inquiry">
-          <option value="" disabled selected>Select an enquiry type</option>
-          <option value="enterprise">Enterprise Activation</option>
-          <option value="investor">Investor Intelligence</option>
-          <option value="startup">Startup Readiness</option>
-          <option value="fractional">Fractional Leadership</option>
-          <option value="partnership">Partnership</option>
-          <option value="general">General Enquiry</option>
-        </select>
-      </div>
-
-      <div class="field-group">
         <label for="message">Message</label>
-        <textarea id="message" rows="5" placeholder="Tell us about your growth ambitions, challenges, or how you'd like to work with us…" required maxlength="1000"></textarea>
+        <textarea id="message" rows="5" placeholder="Tell us about your growth ambitions, business challenges…" required maxlength="1000"></textarea>
         <div class="char-counter" id="charCounter">0 / 1000</div>
       </div>
 
@@ -483,8 +417,6 @@ footer {
   </div>
 </section>
 
-
-
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
@@ -494,9 +426,6 @@ footer {
         <div class="footer-social">
           <a class="social-btn" href="https://linkedin.com/company/queenswaycapital" target="_blank" aria-label="LinkedIn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a class="social-btn" href="mailto:ahmed@queenswaycapital.co.za" aria-label="Email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </a>
           <a class="social-btn" href="https://instagram.com/queenswaycapital" target="_blank" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -510,19 +439,12 @@ footer {
         <a href="service.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </div>
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <a href="about.html#leadership">Leadership Team</a>
-        <a href="service.html">Enterprise Activation</a>
-        <a href="service.html">Investor Intelligence</a>
-        <a href="service.html">Startup Readiness</a>
-      </div>
+      
       <div class="footer-col">
         <h5>Get In Touch</h5>
-        <a href="mailto:ahmed@queenswaycapital.co.za">ahmed@queenswaycapital.co.za</a>
         <a href="tel:+27211802936">+27 21 180 2936</a>
-        <a href="contact.html">Cape Town — V&amp;A Waterfront</a>
-        <a href="contact.html">Johannesburg — Illovo, Sandton</a>
+        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z/data=!3m1!4b1!4m6!3m5!1s0x1dcc675c0099ecc7:0xa8d650055202c94b!8m2!3d-33.9103535!4d18.4213456!16s%2Fg%2F11bw3zx1px?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Cape Town — V&amp;A Waterfront</a>
+        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z/data=!3m1!4b1!4m6!3m5!1s0x1e950cc66f12708b:0xdec98442b3339e98!8m2!3d-26.1240527!4d28.0467942!16s%2Fg%2F11c26fxff5?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Johannesburg — Illovo, Sandton</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -549,32 +471,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
   sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
-
-  /* Transparent nav scroll effect */
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  /* Inquiry tag selector */
-  const inqTags = document.querySelectorAll('.inq-tag');
-  const inquirySelect = document.getElementById('inquiry');
-  const tagToValue = {
-    'Enterprise Activation': 'enterprise',
-    'Investor Intelligence': 'investor',
-    'Startup Readiness': 'startup',
-    'Fractional Leadership': 'fractional',
-    'Partnership': 'partnership',
-    'General Enquiry': 'general'
-  };
-  inqTags.forEach(tag => {
-    tag.addEventListener('click', () => {
-      inqTags.forEach(t => t.classList.remove('active'));
-      tag.classList.add('active');
-      const val = tagToValue[tag.textContent.trim()];
-      if (val) inquirySelect.value = val;
-    });
-  });
 
   /* Character counter */
   const msgField = document.getElementById('message');
@@ -615,15 +511,12 @@ document.addEventListener('DOMContentLoaded', () => {
       await new Promise(resolve => grecaptcha.ready(resolve));
       const token = await grecaptcha.execute(SITE_KEY, { action: 'contact_form' });
 
-      const company  = document.getElementById('company').value.trim();
-      const inquiry  = document.getElementById('inquiry').value;
-      const inqLabel = inquirySelect.options[inquirySelect.selectedIndex]?.text || '';
+      const company = document.getElementById('company').value.trim();
 
       const body = [
         'Name: ' + name,
         company ? 'Company: ' + company : '',
         'Email: ' + email,
-        inqLabel ? 'Enquiry Type: ' + inqLabel : '',
         '',
         'Message:',
         message
@@ -636,10 +529,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = mailtoLink;
 
       setTimeout(() => {
-        form.querySelectorAll('input, textarea, select').forEach(el => el.value = '');
+        form.querySelectorAll('input, textarea').forEach(el => el.value = '');
         charCounter.textContent = '0 / 1000';
-        inqTags.forEach(t => t.classList.remove('active'));
-        inqTags[0].classList.add('active');
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
         formSuccess.classList.add('visible');

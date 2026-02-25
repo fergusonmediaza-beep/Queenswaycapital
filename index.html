@@ -12,15 +12,15 @@
   --dark-green: #1a2f20;
   --mid-green: #243d2c;
   --gold: #8c7030;
-  --gold-light: #c9a84c;   /* brightened */
-  --gold-bright: #e2b94a;  /* new bright accent */
+  --gold-light: #c9a84c;
+  --gold-bright: #e2b94a;
   --blackish: #041716;
   --white: #ffffff;
-  --off-white: #f0ede8;    /* warm off-white for body text */
-  --muted: #c8d9c8;        /* lighter than before */
-  --light-text: #e8ede8;   /* bright body text */
+  --off-white: #f0ede8;
+  --muted: #c8d9c8;
+  --light-text: #e8ede8;
   --header-bg: #0b1c15;
-  --light-bg: #f7f5f0;     /* warm light background */
+  --light-bg: #f7f5f0;
   --card-bg: #f2efe9;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,13 +87,10 @@ nav.nav-links a:hover { color: var(--gold-light); }
   color: var(--white);
   position: relative;
   overflow: hidden;
-  /* Lighter overlay - 0.55 instead of 0.74 */
   background-image: linear-gradient(rgba(4,23,22,0.55) 0%, rgba(11,28,21,0.70) 60%, rgba(4,23,22,0.80) 100%), url("Home (2).png");
   background-size: cover;
   background-position: center top;
 }
-
-/* Subtle gold grid pattern */
 .hero::before {
   content: '';
   position: absolute;
@@ -105,8 +102,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
   pointer-events: none;
   z-index: 0;
 }
-
-/* Gold radial glow centre */
 .hero::after {
   content: '';
   position: absolute;
@@ -119,9 +114,7 @@ nav.nav-links a:hover { color: var(--gold-light); }
   pointer-events: none;
   z-index: 0;
 }
-
 .hero-inner { position: relative; z-index: 1; max-width: 900px; }
-
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -142,11 +135,7 @@ nav.nav-links a:hover { color: var(--gold-light); }
   background: var(--gold-bright);
   animation: tagPulse 2s infinite;
 }
-@keyframes tagPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
+@keyframes tagPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 .hero h1 {
   font-family: "Playfair Display", serif;
   font-size: 60px;
@@ -156,17 +145,14 @@ nav.nav-links a:hover { color: var(--gold-light); }
   text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 .hero h1 em { color: var(--gold-bright); font-style: italic; }
-
 .hero-sub {
   font-size: 18px;
   max-width: 620px;
   margin: 0 auto 28px;
-  /* BRIGHT text - key fix */
   color: rgba(255,255,255,0.92);
   line-height: 1.75;
   font-weight: 400;
 }
-
 .hero-chips {
   display: flex;
   gap: 10px;
@@ -177,7 +163,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .hero-chip {
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.22);
-  /* BRIGHT chip text */
   color: rgba(255,255,255,0.92);
   font-size: 13px;
   font-weight: 600;
@@ -185,14 +170,11 @@ nav.nav-links a:hover { color: var(--gold-light); }
   border-radius: 30px;
   backdrop-filter: blur(4px);
 }
-
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 .btn-primary { background: var(--gold); color: var(--white); border: none; padding: 14px 34px; font-size: 15px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
 .btn-primary:hover { background: var(--gold-light); }
 .btn-outline-light { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.45); padding: 14px 34px; font-size: 15px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: 0.3s; }
 .btn-outline-light:hover { border-color: var(--gold-light); color: var(--gold-light); }
-
-/* Hero scroll indicator */
 .hero-scroll {
   position: absolute;
   bottom: 32px;
@@ -217,7 +199,6 @@ nav.nav-links a:hover { color: var(--gold-light); }
   padding: 36px 24px;
   text-align: center;
 }
-/* BRIGHT text fix */
 .dilemma-banner p { color: black; font-size: 17px; max-width: 840px; margin: 0 auto; line-height: 1.8; }
 .dilemma-banner strong { color: var(--gold-bright); font-weight: 700; }
 
@@ -225,9 +206,7 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .what-we-do { background: var(--mid-green); padding: 88px 24px; }
 .wwd-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
 .wwd-inner > h2 { font-family: "Playfair Display", serif; font-size: 40px; color: var(--white); margin-bottom: 14px; }
-/* BRIGHT subtitle */
 .wwd-inner > .wwd-subtitle { color: rgba(255,255,255,0.82); font-size: 17px; max-width: 600px; margin: 0 auto 52px; line-height: 1.75; }
-
 .wwd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; border-radius: 16px; overflow: hidden; text-align: left; }
 .wwd-col {
   background: rgba(255,255,255,0.05);
@@ -236,6 +215,8 @@ nav.nav-links a:hover { color: var(--gold-light); }
   transition: background 0.3s;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .wwd-col::before {
   content: '';
@@ -248,16 +229,35 @@ nav.nav-links a:hover { color: var(--gold-light); }
 }
 .wwd-col:hover { background: rgba(255,255,255,0.09); }
 .wwd-col:hover::before { opacity: 1; }
-.wwd-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.30); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.wwd-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.30); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; }
 .wwd-col h3 { color: var(--gold-bright); font-size: 18px; font-weight: 700; margin-bottom: 6px; }
-/* BRIGHT focus text */
 .wwd-col .wwd-focus { color: rgba(255,255,255,0.60); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
-.wwd-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-/* BRIGHT tags */
-.wwd-tag { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.82); font-size: 13px; padding: 5px 13px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+/* Enterprise tag grid — equal width, natural wrap, visually balanced */
+.wwd-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wwd-tag {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  white-space: normal;
+  box-sizing: border-box;
+}
 .wwd-cta { text-align: center; margin-top: 40px; }
 
-/* ── WHY QWC ── (LIGHT SECTION - key fix) */
+/* ── WHY QWC ── */
 .why-qwc { background: var(--light-bg); padding: 88px 24px; }
 .why-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
 .why-inner > h2 { font-family: "Playfair Display", serif; font-size: 40px; color: #0d1f14; margin-bottom: 52px; }
@@ -266,76 +266,11 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .why-item:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-3px); }
 .why-item .wi-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(140,112,48,0.09); border: 1px solid rgba(140,112,48,0.22); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
 .why-item h4 { font-size: 17px; font-weight: 700; color: #0d1f14; margin-bottom: 10px; }
-/* DARK text on light bg */
 .why-item p { font-size: 15px; color: #445544; line-height: 1.65; }
 
-/* ── RESULTS STRIP ── */
-.results-strip { background: var(--dark-green); padding: 88px 24px; }
-.results-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-.results-inner > h2 { font-family: "Playfair Display", serif; font-size: 38px; color: var(--white); margin-bottom: 14px; }
-/* BRIGHT text */
-.results-inner > p { color: rgba(255,255,255,0.82); font-size: 17px; max-width: 600px; margin: 0 auto 48px; line-height: 1.75; }
-.results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; text-align: left; }
-.result-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.22); border-radius: 14px; padding: 32px 28px; position: relative; overflow: hidden; transition: border-color 0.3s, background 0.3s; }
-.result-card:hover { border-color: rgba(201,168,76,0.45); background: rgba(255,255,255,0.08); }
-.result-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-light), transparent); }
-.result-card .rc-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 14px; display: block; }
-/* BRIGHT card text */
-.result-card p { color: rgba(255,255,255,0.88); font-size: 15px; line-height: 1.7; }
-
-/* ── VS CONTRAST (LIGHT BG) ── */
-.contrast-section { background: var(--white); padding: 88px 24px; }
-.contrast-inner { max-width: 880px; margin: 0 auto; text-align: center; }
-.contrast-inner > h2 { font-family: "Playfair Display", serif; font-size: 38px; color: #0d1f14; margin-bottom: 10px; }
-.contrast-sub { color: #667766; font-size: 16px; margin-bottom: 48px; }
-.vs-wrap { display: grid; grid-template-columns: 1fr 44px 1fr; }
-.vs-col.them { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 14px 0 0 14px; overflow: hidden; }
-.vs-col.us { background: var(--dark-green); border-radius: 0 14px 14px 0; overflow: hidden; }
-.vs-mid { display: flex; align-items: center; justify-content: center; background: #e0e0e0; }
-.vs-badge { background: var(--dark-green); color: var(--gold-bright); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; padding: 10px 6px; border-radius: 4px; writing-mode: vertical-rl; transform: rotate(180deg); }
-.vs-head { padding: 16px 22px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-.vs-col.them .vs-head { background: #f0f0f0; color: #888; border-bottom: 1px solid #e5e5e5; }
-.vs-col.us .vs-head { background: rgba(255,255,255,0.06); color: var(--gold-bright); border-bottom: 1px solid rgba(255,255,255,0.08); }
-.vs-row { padding: 15px 22px; font-size: 15px; display: flex; align-items: center; gap: 12px; }
-.vs-col.them .vs-row { color: #888; border-bottom: 1px solid #f0f0f0; }
-.vs-col.them .vs-row:last-child { border-bottom: none; }
-/* BRIGHT vs rows */
-.vs-col.us .vs-row { color: rgba(255,255,255,0.90); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.vs-col.us .vs-row:last-child { border-bottom: none; }
-
-/* ── PROCESS ── */
-.process-section { background: var(--mid-green); padding: 88px 24px; }
-.process-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
-.process-inner > h2 { font-family: "Playfair Display", serif; font-size: 40px; color: var(--gold-bright); margin-bottom: 56px; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
-.steps::before { content: ''; position: absolute; top: 26px; left: 22%; right: 22%; height: 1px; background: rgba(201,168,76,0.35); z-index: 0; }
-.step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 22px; position: relative; z-index: 1; }
-.step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--mid-green); border: 2px solid var(--gold-light); color: var(--gold-bright); font-family: "Playfair Display", serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
-.step h4 { color: var(--white); font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-/* BRIGHT step text */
-.step p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.65; }
-
-/* ── TEAM ── */
-.team-section { background: var(--white); padding: 88px 24px; }
-.team-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
-.team-img { flex: 1 1 380px; }
-.team-img img { width: 100%; border-radius: 16px; max-width: 460px; display: block; box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
-.team-content { flex: 1 1 400px; }
-.team-content > h2 { font-family: "Playfair Display", serif; font-size: 34px; color: #0d1f14; margin-bottom: 32px; line-height: 1.25; }
-.leader-mini { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid #efefef; }
-.leader-mini:last-of-type { border-bottom: none; margin-bottom: 26px; }
-.lm-dot { width: 44px; height: 44px; border-radius: 50%; background: var(--dark-green); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; padding: 0; }
-.lm-dot img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
-.lm-name { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 3px; }
-.lm-role { font-size: 13px; color: #777; margin-bottom: 8px; }
-.lm-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.lm-tag { background: rgba(26,47,32,0.08); color: var(--dark-green); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
-/* DARK note text on white bg */
-.team-note { font-size: 15px; color: #556655; font-style: italic; margin-bottom: 28px; line-height: 1.65; }
-
-/* ── AI CAMPUS CALLOUT (NEW SECTION) ── */
+/* ── AI CAMPUS CALLOUT ── */
 .campus-strip {
-  background: var(--blackish);
+  background: #1a2f20;
   border-top: 1px solid rgba(201,168,76,0.2);
   border-bottom: 1px solid rgba(201,168,76,0.2);
   padding: 56px 24px;
@@ -356,14 +291,54 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .campus-inner h3 em { color: var(--gold-bright); font-style: italic; }
 .campus-inner p { color: rgba(255,255,255,0.82); font-size: 16px; max-width: 680px; margin: 0 auto 28px; line-height: 1.75; }
 .campus-badges { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.campus-badge {
-  background: rgba(201,168,76,0.10);
-  border: 1px solid rgba(201,168,76,0.30);
-  color: var(--gold-bright);
-  font-size: 13px; font-weight: 600;
-  padding: 8px 20px;
-  border-radius: 30px;
-}
+.campus-badge { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.30); color: var(--gold-bright); font-size: 13px; font-weight: 600; padding: 8px 20px; border-radius: 30px; }
+
+/* ── VS CONTRAST ── */
+.contrast-section { background: var(--white); padding: 88px 24px; }
+.contrast-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+.contrast-inner > h2 { font-family: "Playfair Display", serif; font-size: 38px; color: #0d1f14; margin-bottom: 10px; }
+.contrast-sub { color: #667766; font-size: 16px; margin-bottom: 48px; }
+.vs-wrap { display: grid; grid-template-columns: 1fr 44px 1fr; }
+.vs-col.them { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 14px 0 0 14px; overflow: hidden; }
+.vs-col.us { background: var(--dark-green); border-radius: 0 14px 14px 0; overflow: hidden; }
+.vs-mid { display: flex; align-items: center; justify-content: center; background: #e0e0e0; }
+.vs-badge { background: var(--dark-green); color: var(--gold-bright); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; padding: 10px 6px; border-radius: 4px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.vs-head { padding: 16px 22px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.vs-col.them .vs-head { background: #f0f0f0; color: #888; border-bottom: 1px solid #e5e5e5; }
+.vs-col.us .vs-head { background: rgba(255,255,255,0.06); color: var(--gold-bright); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.vs-row { padding: 15px 22px; font-size: 15px; display: flex; align-items: center; gap: 12px; }
+.vs-col.them .vs-row { color: #888; border-bottom: 1px solid #f0f0f0; }
+.vs-col.them .vs-row:last-child { border-bottom: none; }
+.vs-col.us .vs-row { color: rgba(255,255,255,0.90); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.vs-col.us .vs-row:last-child { border-bottom: none; }
+
+/* ── PROCESS ── */
+.process-section { background: var(--mid-green); padding: 88px 24px; }
+.process-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+.process-inner > h2 { font-family: "Playfair Display", serif; font-size: 40px; color: var(--gold-bright); margin-bottom: 56px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+.steps::before { content: ''; position: absolute; top: 26px; left: 22%; right: 22%; height: 1px; background: rgba(201,168,76,0.35); z-index: 0; }
+.step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 22px; position: relative; z-index: 1; }
+.step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--mid-green); border: 2px solid var(--gold-light); color: var(--gold-bright); font-family: "Playfair Display", serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+.step h4 { color: var(--white); font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.step p { color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.65; }
+
+/* ── TEAM ── */
+.team-section { background: var(--white); padding: 88px 24px; }
+.team-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
+.team-img { flex: 1 1 380px; }
+.team-img img { width: 100%; border-radius: 16px; max-width: 460px; display: block; box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+.team-content { flex: 1 1 400px; }
+.team-content > h2 { font-family: "Playfair Display", serif; font-size: 34px; color: #0d1f14; margin-bottom: 32px; line-height: 1.25; }
+.leader-mini { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid #efefef; }
+.leader-mini:last-of-type { border-bottom: none; margin-bottom: 26px; }
+.lm-dot { width: 44px; height: 44px; border-radius: 50%; background: var(--dark-green); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; padding: 0; }
+.lm-dot img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+.lm-name { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 3px; }
+.lm-role { font-size: 13px; color: #777; margin-bottom: 8px; }
+.lm-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.lm-tag { background: rgba(26,47,32,0.08); color: var(--dark-green); font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+.team-note { font-size: 15px; color: #556655; font-style: italic; margin-bottom: 28px; line-height: 1.65; }
 
 /* ── PARTNERS ── */
 .partners { padding: 72px 24px; background: var(--light-bg); text-align: center; }
@@ -376,92 +351,25 @@ nav.nav-links a:hover { color: var(--gold-light); }
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ── FOOTER ── */
-footer {
-  background: var(--header-bg);
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding: 64px 24px 28px;
-  font-size: 14px;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 52px;
-}
+footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 24px 28px; font-size: 14px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 52px; }
 .footer-brand img { height: 42px; margin-bottom: 14px; display: block; }
-.footer-brand p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.75;
-  max-width: 260px;
-  margin-bottom: 22px;
-}
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 260px; margin-bottom: 22px; }
 .footer-social { display: flex; gap: 10px; }
-.social-btn {
-  width: 36px; height: 36px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.25s, border-color 0.25s;
-  text-decoration: none;
-}
-.social-btn:hover {
-  background: rgba(201,168,76,0.15);
-  border-color: rgba(201,168,76,0.4);
-}
-.footer-col h5 {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-bright);
-  margin-bottom: 18px;
-}
-.footer-col a {
-  display: block;
-  color: rgba(255,255,255,0.60);
-  text-decoration: none;
-  font-size: 14px;
-  margin-bottom: 11px;
-  transition: color 0.2s;
-}
+.social-btn { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.25s, border-color 0.25s; text-decoration: none; }
+.social-btn:hover { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 18px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.60); text-decoration: none; font-size: 14px; margin-bottom: 11px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--gold-light); }
 .footer-col a:last-child { margin-bottom: 0; }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 13px; }
 .footer-bottom a { color: var(--gold-light); text-decoration: none; }
 .footer-bottom a:hover { color: var(--gold-bright); }
-.footer-badge {
-  background: rgba(201,168,76,0.10);
-  border: 1px solid rgba(201,168,76,0.25);
-  color: var(--gold-light);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 20px;
-}
-@media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 560px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
-}
+.footer-badge { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.25); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -474,7 +382,6 @@ footer {
   .vs-col.us { border-radius: 0 0 14px 14px; }
   .vs-mid { padding: 10px; flex-direction: row; }
   .vs-badge { writing-mode: horizontal-tb; transform: none; }
-  .results-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   nav.nav-links { display: none; }
@@ -484,14 +391,10 @@ footer {
   .hero-ctas { flex-direction: column; align-items: center; }
   .why-row { grid-template-columns: 1fr; }
   .team-inner { flex-direction: column; gap: 36px; }
+  .wwd-tags { min-height: auto; }
 }
-
-/* hero needs top padding since nav is now fixed */
 .hero { padding-top: 140px; }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 .hero-inner { animation: fadeUp 0.7s ease both; }
 </style>
 </head>
@@ -533,7 +436,7 @@ footer {
   <nav class="sidebar-nav">
     <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-    <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 href="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
   </nav>
   <div class="sidebar-footer">
     <a href="contact.html">Contact Us</a>
@@ -552,7 +455,7 @@ footer {
     <div class="hero-chips">
       <span class="hero-chip">Zero CapEx Burden</span>
       <span class="hero-chip">Fractional Execution</span>
-      <span class="hero-chip">Measurable ROI</span>
+      <span class="hero-chip">Measurable Revenue Growth</span>
       <span class="hero-chip">AI Campus Sandbox</span>
     </div>
     <div class="hero-ctas">
@@ -571,13 +474,13 @@ footer {
 
 <!-- DILEMMA BANNER -->
 <div class="dilemma-banner">
-  <p>Every enterprise faces the same conflict: the <strong>need for AI-driven growth</strong> vs. the <strong>fear of CapEx commitment</strong>. Queens Way Capital is the antidote — activating transformation without the balance sheet burden, driving <strong>strategic capital allocation and institutional-grade technology optimisation</strong> from paper-based strategy to hands-on execution and measurable ROI.</p>
+  <p>Every enterprise faces the same conflict: the <strong>need for AI-driven growth</strong> vs. the <strong>fear of CapEx commitment</strong>. Queens Way Capital is the antidote — activating transformation without the balance sheet burden, driving <strong>institutional-grade technology optimisation</strong> from paper-based strategy to hands-on execution and measurable revenue growth.</p>
 </div>
 
 <!-- WHAT WE DO -->
 <section class="what-we-do">
   <div class="wwd-inner">
-    <span class="section-label">Growth Pillars</span>
+    <span class="section-label"></span>
     <h2>Three Growth Activation Pillars</h2>
     <p class="wwd-subtitle">Each pillar is engineered to unlock growth trajectories, de-risk scaling decisions, and operationalise strategy through embedded fractional leadership — not filed-away reports.</p>
     <div class="wwd-grid">
@@ -588,10 +491,10 @@ footer {
         <h3>Enterprise Activation</h3>
         <div class="wwd-focus">Resource-Light Transformation</div>
         <div class="wwd-tags">
-          <span class="wwd-tag">Process Automation</span>
-          <span class="wwd-tag">AI Adoption</span>
           <span class="wwd-tag">Fractional Leadership</span>
           <span class="wwd-tag">Strategic Execution</span>
+          <span class="wwd-tag">Process Automation</span>
+          <span class="wwd-tag">AI Adoption</span>
         </div>
       </div>
       <div class="wwd-col">
@@ -601,10 +504,10 @@ footer {
         <h3>Investor Intelligence</h3>
         <div class="wwd-focus">De-risking Scaling Decisions</div>
         <div class="wwd-tags">
+        <span class="wwd-tag">Proprietary Models</span>
+        <span class="wwd-tag">Funding Strategy</span>
+        <span class="wwd-tag">Revenue growth</span>
           <span class="wwd-tag">Due Diligence</span>
-          <span class="wwd-tag">ROI Optimisation</span>
-          <span class="wwd-tag">Proprietary Models</span>
-          <span class="wwd-tag">Funding Strategy</span>
         </div>
       </div>
       <div class="wwd-col">
@@ -612,10 +515,10 @@ footer {
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <h3>Startup Readiness</h3>
-        <div class="wwd-focus">Scale Acceleration &amp; Capital Readiness</div>
+        <div class="wwd-focus">Capital Scale & Acceleration</div>
         <div class="wwd-tags">
-          <span class="wwd-tag">Maturity Assessment</span>
           <span class="wwd-tag">Corporate Governance</span>
+          <span class="wwd-tag">Maturity Assessment</span>
           <span class="wwd-tag">Capital Readiness</span>
           <span class="wwd-tag">Go-to-Market</span>
         </div>
@@ -658,30 +561,7 @@ footer {
   </div>
 </section>
 
-<!-- RESULTS STRIP -->
-<section class="results-strip">
-  <div class="results-inner">
-    <span class="section-label">Activation in Action</span>
-    <h2>Outcomes, Not Outputs</h2>
-    <p>Technology tested, broken, and refined at our EPF Tech Hub &amp; AI Campus Sandbox — before it ever touches your live environment.</p>
-    <div class="results-grid">
-      <div class="result-card">
-        <span class="rc-label">Financial Services</span>
-        <p>Turned value leakage into an integrated growth hub — converting siloed operations into a unified, automated revenue engine with traceable ROI at every milestone.</p>
-      </div>
-      <div class="result-card">
-        <span class="rc-label">Telecommunications</span>
-        <p>Replaced agency-heavy hiring pipelines with automated ROI dashboards — cutting acquisition cost while accelerating measurable growth targets quarter over quarter.</p>
-      </div>
-      <div class="result-card">
-        <span class="rc-label">Fractional Leadership</span>
-        <p>Every strategy is operationalised through embedded fractional executives — ensuring C-suite accountability at every milestone, not just at delivery.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI CAMPUS STRIP (NEW) -->
+<!-- AI CAMPUS STRIP -->
 <section class="campus-strip">
   <div class="campus-inner">
     <span class="section-label">External R&amp;D Engine</span>
@@ -704,50 +584,20 @@ footer {
     <div class="vs-wrap">
       <div class="vs-col them">
         <div class="vs-head">Traditional Advisory</div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          Paper-based strategy, no execution
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          Single-lens perspective
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          Heavy CapEx commitment required
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          Generic frameworks, no context
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          No live testing environment
-        </div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Paper-based strategy, no execution</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Single-lens perspective</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Heavy CapEx commitment required</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Generic frameworks, no context</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No live testing environment</div>
       </div>
       <div class="vs-mid"><div class="vs-badge">VS</div></div>
       <div class="vs-col us">
         <div class="vs-head">Queens Way Capital</div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Hands-on activation &amp; fractional execution
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Startup, VC &amp; enterprise fluency — simultaneously
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Zero balance sheet burden
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Proprietary Maturity Assessment Framework
-        </div>
-        <div class="vs-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          AI Campus Sandbox — live R&amp;D engine
-        </div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Hands-on activation &amp; fractional execution</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Startup, VC &amp; enterprise fluency — simultaneously</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Zero balance sheet burden</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Proprietary Maturity Assessment Framework</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI Campus Sandbox — live R&amp;D engine</div>
       </div>
     </div>
   </div>
@@ -845,28 +695,18 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
-
-      <!-- Brand col -->
       <div class="footer-brand">
         <img src="logo.png" alt="Queens Way Capital">
         <p>Exponential Growth Activation Partner. Embedding alongside enterprises, investors, and startups to operationalise strategy and deliver measurable outcomes across Africa and beyond.</p>
         <div class="footer-social">
-          <!-- LinkedIn -->
           <a class="social-btn" href="https://linkedin.com/company/queenswaycapital" target="_blank" aria-label="LinkedIn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <!-- Email -->
-          <a class="social-btn" href="mailto:ahmed@queenswaycapital.co.za" aria-label="Email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-          <!-- Instagram -->
           <a class="social-btn" href="https://instagram.com/queenswaycapital" target="_blank" aria-label="Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
         </div>
       </div>
-
-      <!-- Navigation -->
       <div class="footer-col">
         <h5>Navigation</h5>
         <a href="index.html">Home</a>
@@ -874,27 +714,13 @@ footer {
         <a href="service.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </div>
-
-      <!-- Quick Links -->
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <a href="about.html#leadership">Leadership Team</a>
-        <a href="service.html">Enterprise Activation</a>
-        <a href="service.html">Investor Intelligence</a>
-        <a href="service.html">Startup Readiness</a>
-      </div>
-
-      <!-- Contact -->
       <div class="footer-col">
         <h5>Get In Touch</h5>
-        <a href="mailto:ahmed@queenswaycapital.co.za">ahmed@queenswaycapital.co.za</a>
         <a href="tel:+27211802936">+27 21 180 2936</a>
-        <a href="contact.html">Cape Town — V&amp;A Waterfront</a>
-        <a href="contact.html">Johannesburg — Illovo, Sandton</a>
+        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z/data=!3m1!4b1!4m6!3m5!1s0x1dcc675c0099ecc7:0xa8d650055202c94b!8m2!3d-33.9103535!4d18.4213456!16s%2Fg%2F11bw3zx1px?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Cape Town — V&amp;A Waterfront</a>
+        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z/data=!3m1!4b1!4m6!3m5!1s0x1e950cc66f12708b:0xdec98442b3339e98!8m2!3d-26.1240527!4d28.0467942!16s%2Fg%2F11c26fxff5?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Johannesburg — Illovo, Sandton</a>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <p>© 2025 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank">Ferguson Media</a>.</p>
       <span class="footer-badge">Growth Activation Partner</span>
@@ -914,15 +740,9 @@ footer {
   closeBtn.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
   sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
-
-  // Transparent nav — add .scrolled class after hero
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+    header.classList.toggle('scrolled', window.scrollY > 60);
   });
 })();
 </script>
