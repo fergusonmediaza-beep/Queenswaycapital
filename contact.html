@@ -42,10 +42,30 @@ header { background: var(--header-bg); border-bottom: 1px solid var(--border); p
 .brand img { height: 44px; }
 .brand span { font-size: 20px; color: var(--gold-light); font-weight: 700; letter-spacing: 0.3px; }
 nav.nav-links { display: flex; align-items: center; gap: 28px; }
-nav.nav-links a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.25s; }
+nav.nav-links a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.25s;
+  position: relative;
+  padding-bottom: 4px;
+}
+nav.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold-light);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
 nav.nav-links a:hover { color: var(--gold-light); }
-.nav-cta { background: var(--gold); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; font-weight: 700 !important; transition: background 0.25s !important; }
-.nav-cta:hover { background: var(--gold-light) !important; }
+nav.nav-links a:hover::after { transform: scaleX(1); }
+nav.nav-links a.active { color: var(--gold-bright); }
+nav.nav-links a.active::after { transform: scaleX(1); background: var(--gold-bright); }
 
 /* ── HAMBURGER ── */
 .hamburger { display: none; flex-direction: column; justify-content: space-around; width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1100; }
@@ -64,10 +84,11 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .sidebar-nav { display: flex; flex-direction: column; padding: 20px 0; flex: 1; }
 .sidebar-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
 .sidebar-nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+.sidebar-nav a.active { color: var(--gold-bright); background: rgba(201,168,76,0.06); }
 .sidebar-nav a:last-child { border-bottom: none; }
 .sidebar-footer { padding: 20px 24px; border-top: 1px solid var(--border); }
-.sidebar-footer a { display: block; background: var(--gold); color: var(--white); text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.25s; }
-.sidebar-footer a:hover { background: var(--gold-light); }
+.sidebar-footer a { display: block; background: transparent; color: rgba(255,255,255,0.88); text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; transition: color 0.25s; border: 1px solid rgba(255,255,255,0.15); }
+.sidebar-footer a:hover { color: var(--gold-light); border-color: rgba(201,168,76,0.4); }
 
 /* ── HERO ── */
 .contact-hero { padding-top: 140px; position: relative; z-index: 1; background: var(--dark-green); padding: 92px 24px 84px; text-align: center; overflow: hidden; }
@@ -188,11 +209,8 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
 .footer-bottom a { color: var(--gold-light); text-decoration: none; }
 .footer-bottom a:hover { color: var(--gold-bright); }
 .footer-badge { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.25); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; }
-@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } .contact-main { grid-template-columns: 1fr; gap: 40px; } .offices-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) { .contact-main { grid-template-columns: 1fr; gap: 40px; } .offices-grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { nav.nav-links { display: none; } .hamburger { display: flex; } .contact-hero h1 { font-size: 34px; } .hero-stats { flex-wrap: wrap; } .hero-stat { flex: 1 1 45%; } .form-row { grid-template-columns: 1fr; } .form-panel { padding: 28px 22px; } }
 @media (max-width: 480px) { .contact-hero { padding: 72px 20px 64px; } .contact-hero h1 { font-size: 28px; } .hero-stat { flex: 1 1 100%; border-right: none; border-bottom: 1px solid var(--border-gold); } .hero-stat:last-child { border-bottom: none; } }
 
@@ -214,7 +232,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="service.html">Services</a>
-      <a href="contact.html" class="nav-cta">Contact Us</a>
+      <a href="contact.html" class="active">Contact Us</a>
     </nav>
     <button class="hamburger" id="menuBtn" aria-label="Open menu">
       <span class="hamburger-line"></span>
@@ -240,9 +258,10 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
     <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="contact.html" class="active">Contact Us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
   </nav>
   <div class="sidebar-footer">
-    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Get In Touch</a>
   </div>
 </div>
 
@@ -253,7 +272,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
       <span class="section-label">Get In Touch</span>
     </div>
     <h1>Start the <em>Conversation.</em><br>Activate Growth.</h1>
-    <p>Whether you're an enterprise, investor, or startup — we embed alongside you to map a clear path from uncertainty to exponential, measurable outcomes.</p>
+    <p>Whether you're an enterprise, investor, or startup we embed alongside you to map a clear path from uncertainty to exponential, measurable outcomes.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hs-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2b94a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
@@ -286,7 +305,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
   <div class="info-panel">
     <span class="section-label">How to Reach Us</span>
     <h2>Let's Build Something Exponential Together</h2>
-    <p>From a discovery conversation to a full activation engagement — every growth journey starts with a single message. We respond to every serious inquiry personally. No automated replies, no junior handoffs.</p>
+    <p>From a discovery conversation to a full activation engagement every growth journey starts with a single message. We respond to every serious inquiry personally. No automated replies, no junior handoffs.</p>
 
     <div class="contact-cards">
       <div class="contact-card">
@@ -427,9 +446,6 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
           <a class="social-btn" href="https://www.linkedin.com/company/queens-way-capital/" target="_blank" aria-label="LinkedIn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <!-- <a class="social-btn" href="https://instagram.com/queenswaycapital" target="_blank" aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a> -->
         </div>
       </div>
       <div class="footer-col">
@@ -439,12 +455,11 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
         <a href="service.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </div>
-      
       <div class="footer-col">
         <h5>Get In Touch</h5>
         <a href="tel:+27211802936">+27 21 180 2936</a>
-        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z/data=!3m1!4b1!4m6!3m5!1s0x1dcc675c0099ecc7:0xa8d650055202c94b!8m2!3d-33.9103535!4d18.4213456!16s%2Fg%2F11bw3zx1px?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Cape Town — V&amp;A Waterfront</a>
-        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z/data=!3m1!4b1!4m6!3m5!1s0x1e950cc66f12708b:0xdec98442b3339e98!8m2!3d-26.1240527!4d28.0467942!16s%2Fg%2F11c26fxff5?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Johannesburg — Illovo, Sandton</a>
+        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z">Cape Town — V&amp;A Waterfront</a>
+        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z">Johannesburg — Illovo, Sandton</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -453,7 +468,6 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
     </div>
   </div>
 </footer>
-
 
 <script src="https://www.google.com/recaptcha/api.js?render=6LfE7W4sAAAAAA_Yg2Yl7xag2ozchYZzmIv9VK0S"></script>
 <script>

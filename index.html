@@ -45,10 +45,30 @@ header.scrolled {
 .brand img { height: 44px; }
 .brand span { font-size: 20px; color: var(--gold-light); font-weight: 700; letter-spacing: 0.3px; }
 nav.nav-links { display: flex; align-items: center; gap: 28px; }
-nav.nav-links a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.25s; }
+nav.nav-links a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.25s;
+  position: relative;
+  padding-bottom: 4px;
+}
+nav.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold-light);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
 nav.nav-links a:hover { color: var(--gold-light); }
-.nav-cta { background: var(--gold); color: var(--white) !important; padding: 8px 20px; border-radius: 4px; font-weight: 700 !important; transition: background 0.25s !important; }
-.nav-cta:hover { background: var(--gold-light) !important; }
+nav.nav-links a:hover::after { transform: scaleX(1); }
+nav.nav-links a.active { color: var(--gold-bright); }
+nav.nav-links a.active::after { transform: scaleX(1); background: var(--gold-bright); }
 
 /* ── HAMBURGER ── */
 .hamburger { display: none; flex-direction: column; justify-content: space-around; width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1100; }
@@ -67,10 +87,11 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .sidebar-nav { display: flex; flex-direction: column; padding: 20px 0; flex: 1; }
 .sidebar-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
 .sidebar-nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+.sidebar-nav a.active { color: var(--gold-bright); background: rgba(201,168,76,0.06); }
 .sidebar-nav a:last-child { border-bottom: none; }
 .sidebar-footer { padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.08); }
-.sidebar-footer a { display: block; background: var(--gold); color: var(--white); text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.25s; }
-.sidebar-footer a:hover { background: var(--gold-light); }
+.sidebar-footer a { display: block; background: transparent; color: rgba(255,255,255,0.88); text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; transition: color 0.25s; border: 1px solid rgba(255,255,255,0.15); }
+.sidebar-footer a:hover { color: var(--gold-light); border-color: rgba(201,168,76,0.4); }
 
 /* ── SECTION LABEL ── */
 .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; display: block; }
@@ -199,7 +220,7 @@ nav.nav-links a:hover { color: var(--gold-light); }
   padding: 36px 24px;
   text-align: center;
 }
-.dilemma-banner p { color: black; font-size: 17px; max-width: 840px; margin: 0 auto; line-height: 1.8; }
+.dilemma-banner p { color: black; font-size: 17px; max-width: 860px; margin: 0 auto; line-height: 1.8; }
 .dilemma-banner strong { color: var(--gold-bright); font-weight: 700; }
 
 /* ── WHAT WE DO ── */
@@ -232,12 +253,7 @@ nav.nav-links a:hover { color: var(--gold-light); }
 .wwd-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.30); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; }
 .wwd-col h3 { color: var(--gold-bright); font-size: 18px; font-weight: 700; margin-bottom: 6px; }
 .wwd-col .wwd-focus { color: rgba(255,255,255,0.60); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
-/* Enterprise tag grid — equal width, natural wrap, visually balanced */
-.wwd-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.wwd-tags { display: flex; flex-direction: column; gap: 8px; }
 .wwd-tag {
   display: flex;
   align-items: center;
@@ -408,10 +424,10 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
       <span>Queens Way Capital</span>
     </a>
     <nav class="nav-links">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="service.html">Services</a>
-      <a href="contact.html" class="nav-cta">Contact Us</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
     <button class="hamburger" aria-label="Open menu" id="menuBtn">
       <span class="hamburger-line"></span>
@@ -434,12 +450,13 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
     </button>
   </div>
   <nav class="sidebar-nav">
-    <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="index.html" class="active">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
     <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="contact.html">Contact Us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
   </nav>
   <div class="sidebar-footer">
-    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Get In Touch</a>
   </div>
 </div>
 
@@ -451,7 +468,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
       Exponential Growth Activation Partner
     </div>
     <h1>Activate <em>Exponential Growth.</em><br>Without the CapEx Burden.</h1>
-    <p class="hero-sub">We don't advise from the sidelines. We embed alongside enterprises, investors, and startups to operationalise strategy, deploy fractional leadership, and deliver measurable market outcomes — across Africa and beyond.</p>
+    <p class="hero-sub">We don't advise from the sidelines. We embed alongside enterprises, investors, and startups to operationalise strategy, deploy fractional leadership, and deliver measurable market outcomes across Africa and beyond.</p>
     <div class="hero-chips">
       <span class="hero-chip">Zero CapEx Burden</span>
       <span class="hero-chip">Fractional Execution</span>
@@ -472,9 +489,9 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
   </div>
 </section>
 
-<!-- DILEMMA BANNER -->
+<!-- DILEMMA BANNER — updated with "technology capital risk" -->
 <div class="dilemma-banner">
-  <p>Every enterprise faces the same conflict: the <strong>need for AI-driven growth</strong> vs. the <strong>fear of CapEx commitment</strong>. Queens Way Capital is the antidote — activating transformation without the balance sheet burden, driving <strong>institutional-grade technology optimisation</strong> from paper-based strategy to hands-on execution and measurable revenue growth.</p>
+  <p>Many organisations are paralyzed by <strong>technology capital risk</strong> the friction between the <strong>urgent need for AI-driven growth</strong> and the <strong>fear of CapEx commitment</strong> or wasted resource allocation. Queens Way Capital is the antidote activating transformation without the balance sheet burden, driving <strong>institutional-grade technology optimisation</strong> from paper-based strategy to hands-on execution and measurable revenue growth.</p>
 </div>
 
 <!-- WHAT WE DO -->
@@ -482,7 +499,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
   <div class="wwd-inner">
     <span class="section-label"></span>
     <h2>Three Growth Activation Pillars</h2>
-    <p class="wwd-subtitle">Each pillar is engineered to unlock growth trajectories, de-risk scaling decisions, and operationalise strategy through embedded fractional leadership — not filed-away reports.</p>
+    <p class="wwd-subtitle">Each pillar is engineered to unlock growth trajectories, de-risk scaling decisions, and operationalise strategy through embedded fractional leadership not filed-away reports.</p>
     <div class="wwd-grid">
       <div class="wwd-col">
         <div class="wwd-icon">
@@ -530,7 +547,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
   </div>
 </section>
 
-<!-- WHY QWC -->
+<!-- WHY QWC — updated with "technology capital risk" in investor item -->
 <section class="why-qwc">
   <div class="why-inner">
     <span class="section-label" style="color:var(--gold)">Our Edge</span>
@@ -541,21 +558,21 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c7030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
         </div>
         <h4>Proprietary Maturity Assessment Models</h4>
-        <p>Not generic templates — every framework is calibrated to your specific market, readiness, and growth ambition. Our Maturity Assessment Framework surfaces red flags that standard consultancies miss entirely.</p>
+        <p>Not generic templates every framework is calibrated to your specific market, readiness, and growth ambition. Our Maturity Assessment Framework surfaces red flags that standard consultancies miss entirely.</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c7030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
         </div>
         <h4>Cross-Pollinated Intelligence</h4>
-        <p>Simultaneously active in startups, VCs &amp; enterprise — giving you market foresight that single-lens advisors simply cannot access. Our intelligence is sharper because of our position across the full ecosystem.</p>
+        <p>We assist venture capitalists and funders in optimising ROI by providing a proprietary framework to evaluate and mitigate <strong>technology capital risk</strong> giving you market foresight that single-lens advisors simply cannot access.</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c7030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
         <h4>Activation, Not Advisory</h4>
-        <p>Every engagement anchored to measurable growth targets — not filed away in a deck. Strategy is operationalised through embedded fractional leadership. We own the outcome, not just the recommendation.</p>
+        <p>Every engagement anchored to measurable growth targets not filed away in a deck. Strategy is operationalised through embedded fractional leadership. We own the outcome, not just the recommendation.</p>
       </div>
     </div>
   </div>
@@ -566,7 +583,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
   <div class="campus-inner">
     <span class="section-label">External R&amp;D Engine</span>
     <h3>The <em>AI Campus Sandbox</em> — Your Safe Harbour</h3>
-    <p>Unlike any traditional advisory, we test, break, and validate technology in our external EPF Tech Hub &amp; AI Campus before it touches your live environment. Risk-averse CEOs get a clear proof of concept — before a single rand hits the balance sheet.</p>
+    <p>Unlike any traditional advisory, we test, break, and validate technology in our external EPF Tech Hub &amp; AI Campus before it touches your live environment. Risk-averse CEOs get a clear proof of concept before a single rand hits the balance sheet.</p>
     <div class="campus-badges">
       <span class="campus-badge">Live Tech Testing</span>
       <span class="campus-badge">Pre-validated AI Adoption</span>
@@ -586,7 +603,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
         <div class="vs-head">Traditional Advisory</div>
         <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Paper-based strategy, no execution</div>
         <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Single-lens perspective</div>
-        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Heavy CapEx commitment required</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Heavy technology capital risk exposure</div>
         <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Generic frameworks, no context</div>
         <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No live testing environment</div>
       </div>
@@ -594,10 +611,10 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
       <div class="vs-col us">
         <div class="vs-head">Queens Way Capital</div>
         <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Hands-on activation &amp; fractional execution</div>
-        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Startup, VC &amp; enterprise fluency — simultaneously</div>
-        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Zero balance sheet burden</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Startup, VC &amp; enterprise fluency simultaneously</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Technology capital risk eliminated</div>
         <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Proprietary Maturity Assessment Framework</div>
-        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI Campus Sandbox — live R&amp;D engine</div>
+        <div class="vs-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI Campus Sandbox live R&amp;D engine</div>
       </div>
     </div>
   </div>
@@ -612,23 +629,23 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
       <div class="step">
         <div class="step-num">01</div>
         <h4>Readiness Assessment</h4>
-        <p>Capability, tech fit &amp; market opportunity mapped via our proprietary Maturity Assessment Framework — not generic templates.</p>
+        <p>Capability, tech fit &amp; market opportunity mapped via our proprietary Maturity Assessment Framework not generic templates.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
         <h4>Strategic Direction</h4>
-        <p>A grounded roadmap — aligned leadership, resources &amp; measurable growth objectives agreed upfront. No ambiguity.</p>
+        <p>A grounded roadmap aligned leadership, resources &amp; measurable growth objectives agreed upfront. No ambiguity.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <h4>Activation &amp; Execution</h4>
-        <p>Fractional leadership embedded. Strategy operationalised. ROI tracked at every milestone — not just at delivery.</p>
+        <p>Fractional leadership embedded. Strategy operationalised. ROI tracked at every milestone not just at delivery.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
+<!-- TEAM — updated with "technology capital risk" in team note -->
 <section class="team-section">
   <div class="team-inner">
     <div class="team-img">
@@ -659,7 +676,7 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
           </div>
         </div>
       </div>
-      <p class="team-note">Our collective of Tech Investors, Deal Makers, and Corporate Specialists — supported by 100+ innovators and backed by the EPF Tech Hub &amp; AI Campus Sandbox as our external R&amp;D engine.</p>
+      <p class="team-note">Led by tech investors and experienced deal makers, our team specialises in navigating <strong>technology capital risk</strong> to deliver impactful solutions and strategic guidance backed by 100+ innovators and the EPF Tech Hub &amp; AI Campus Sandbox.</p>
       <button class="btn-primary" onclick="window.location.href='about.html'">Meet the Team</button>
     </div>
   </div>
@@ -702,9 +719,6 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
           <a class="social-btn" href="https://www.linkedin.com/company/queens-way-capital/" target="_blank" aria-label="LinkedIn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <!-- <a class="social-btn" href="https://instagram.com/queenswaycapital" target="_blank" aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a> -->
         </div>
       </div>
       <div class="footer-col">
@@ -714,12 +728,11 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
         <a href="service.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </div>
-      
       <div class="footer-col">
         <h5>Get In Touch</h5>
         <a href="tel:+27211802936">+27 21 180 2936</a>
-        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z/data=!3m1!4b1!4m6!3m5!1s0x1dcc675c0099ecc7:0xa8d650055202c94b!8m2!3d-33.9103535!4d18.4213456!16s%2Fg%2F11bw3zx1px?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Cape Town — V&amp;A Waterfront</a>
-        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z/data=!3m1!4b1!4m6!3m5!1s0x1e950cc66f12708b:0xdec98442b3339e98!8m2!3d-26.1240527!4d28.0467942!16s%2Fg%2F11c26fxff5?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D">Johannesburg — Illovo, Sandton</a>
+        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z">Cape Town — V&amp;A Waterfront</a>
+        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z">Johannesburg — Illovo, Sandton</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -728,7 +741,6 @@ footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.
     </div>
   </div>
 </footer>
-
 
 <script>
 (function() {
