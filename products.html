@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Products | Queens Way Capital | Fintech & Banking Solutions · SSIF Impact Investment</title>
+<meta name="description" content="Queens Way Capital's flagship product suite: Fintech & Banking Solutions covering payment infrastructure, capital advisory, and AI diagnostics — and the EPF Sustainable Social Impact Fund (SSIF) for Section 18A, B-BBEE, and SDL-aligned impact investment.">
+<meta name="keywords" content="fintech infrastructure South Africa, payment switching advisory, SARB FSCA POPIA compliance, SSIF impact fund, Section 18A CSI, B-BBEE investment, SDL skills development levy, blended finance South Africa, SALGA municipal finance, AI maturity assessment">
+<link rel="canonical" href="https://www.queenswaycapital.co.za/products.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.queenswaycapital.co.za/products.html">
+<meta property="og:title" content="Products | Queens Way Capital — Fintech & SSIF">
+<meta property="og:description" content="Two flagship products: Fintech & Banking Solutions and the EPF Sustainable Social Impact Fund — built for South Africa's financial services sector.">
+<meta property="og:image" content="https://www.queenswaycapital.co.za/logo.png">
+<meta property="og:site_name" content="Queens Way Capital">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Queens Way Capital Products | Fintech & SSIF">
+<meta name="twitter:description" content="Fintech infrastructure, capital advisory, AI diagnostics, and impact investment — delivered by one partner.">
+<meta name="twitter:image" content="https://www.queenswaycapital.co.za/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-583BBB8H');</script>
+<!-- End Google Tag Manager -->
+<style>
+:root {
+  --dark-green: #1a2f20;
+  --mid-green: #243d2c;
+  --gold: #8c7030;
+  --gold-light: #c9a84c;
+  --gold-bright: #e2b94a;
+  --bg: #041716;
+  --muted: #c8d9c8;
+  --white: #ffffff;
+  --light-bg: #f7f5f0;
+  --header-bg: #0b1c15;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--white); line-height: 1.6; }
+
+/* ── HEADER ── */
+header { background: transparent; border-bottom: 1px solid transparent; position: fixed; top: 0; left: 0; right: 0; z-index: 1001; transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+header.scrolled { background: var(--header-bg); border-bottom: 1px solid rgba(255,255,255,.07); box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand img { height: 44px; }
+.brand span { font-size: 20px; color: var(--gold-light); font-weight: 700; letter-spacing: 0.3px; }
+nav.nav-links { display: flex; align-items: center; gap: 28px; }
+nav.nav-links a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.25s;
+  position: relative;
+  padding-bottom: 4px;
+}
+nav.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold-light);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+nav.nav-links a:hover { color: var(--gold-light); }
+nav.nav-links a:hover::after { transform: scaleX(1); }
+nav.nav-links a.active { color: var(--gold-bright); }
+nav.nav-links a.active::after { transform: scaleX(1); background: var(--gold-bright); }
+
+/* ── HAMBURGER ── */
+.hamburger { display: none; flex-direction: column; justify-content: space-around; width: 28px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1100; }
+.hamburger-line { width: 100%; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+
+/* ── SIDEBAR ── */
+.sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1050; opacity: 0; transition: opacity 0.3s; }
+.sidebar-overlay.open { display: block; opacity: 1; }
+.sidebar { position: fixed; top: 0; right: -280px; width: 260px; height: 100%; background: var(--header-bg); z-index: 1060; display: flex; flex-direction: column; transition: right 0.32s cubic-bezier(0.4,0,0.2,1); border-left: 1px solid rgba(255,255,255,0.08); }
+.sidebar.open { right: 0; }
+.sidebar-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.sidebar-brand { display: flex; align-items: center; gap: 8px; }
+.sidebar-brand img { height: 32px; }
+.sidebar-brand span { font-size: 14px; color: var(--gold-light); font-weight: 700; }
+.sidebar-close { width: 32px; height: 32px; background: rgba(255,255,255,0.06); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.sidebar-nav { display: flex; flex-direction: column; padding: 20px 0; flex: 1; }
+.sidebar-nav a { color: rgba(255,255,255,0.88); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
+.sidebar-nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
+.sidebar-nav a.active { color: var(--gold-bright); background: rgba(201,168,76,0.06); }
+.sidebar-nav a:last-child { border-bottom: none; }
+.sidebar-footer { padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+.sidebar-footer a { display: block; background: transparent; color: rgba(255,255,255,0.88); text-align: center; padding: 12px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; transition: color 0.25s; border: 1px solid rgba(255,255,255,0.15); }
+.sidebar-footer a:hover { color: var(--gold-light); border-color: rgba(201,168,76,0.4); }
+
+/* ── COMMON ── */
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 10px; display: block; }
+.btn-primary { background: var(--gold); color: var(--white); border: none; padding: 14px 32px; font-size: 15px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; }
+.btn-primary:hover { background: var(--gold-light); }
+
+/* ── HERO ── */
+.prod-hero {
+  background: var(--dark-green);
+  padding: 140px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.prod-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.prod-hero-inner { max-width: 680px; margin: 0 auto; position: relative; }
+.prod-hero h1 { font-family: "Playfair Display", serif; font-size: 52px; color: var(--gold-bright); margin-bottom: 20px; line-height: 1.15; letter-spacing: -0.02em; }
+.prod-hero p { color: rgba(255,255,255,0.82); font-size: 18px; line-height: 1.75; margin-bottom: 32px; }
+.hero-product-pills { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-pill {
+  background: rgba(201,168,76,0.10);
+  border: 1px solid rgba(201,168,76,0.30);
+  color: var(--gold-bright);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 30px;
+  letter-spacing: 0.3px;
+}
+
+/* ── PRODUCT SECTION WRAPPER ── */
+.product-block { padding: 80px 24px; }
+.product-block.light { background: var(--white); }
+.product-block.dark { background: var(--dark-green); }
+.product-block-inner { max-width: 1100px; margin: 0 auto; }
+
+/* ── PRODUCT HEADER ── */
+.product-header { display: flex; align-items: flex-start; gap: 28px; margin-bottom: 52px; }
+.product-num-badge {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background: var(--dark-green);
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+.product-block.light .product-num-badge { background: var(--dark-green); }
+.product-block.dark .product-num-badge { background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.4); }
+.product-header-text {}
+.product-header-text .section-label { margin-bottom: 6px; }
+.product-header-text h2 { font-family: "Playfair Display", serif; font-size: 36px; line-height: 1.2; margin-bottom: 12px; }
+.product-block.light .product-header-text h2 { color: var(--dark-green); }
+.product-block.dark .product-header-text h2 { color: var(--gold-bright); }
+.product-header-text p { font-size: 16px; line-height: 1.75; max-width: 680px; }
+.product-block.light .product-header-text p { color: rgba(0,0,0,0.65); }
+.product-block.dark .product-header-text p { color: rgba(255,255,255,0.80); }
+
+/* ── OFFERING CARDS GRID (Fintech sub-products) ── */
+.offering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.offering-card {
+  background: var(--light-bg);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.offering-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+}
+.offering-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.offering-card:hover::before { opacity: 1; }
+.offering-card-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: block;
+}
+.offering-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: var(--dark-green);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+.offering-tagline {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: block;
+}
+.offering-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.offering-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(0,0,0,0.72); line-height: 1.5; }
+.offering-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); flex-shrink: 0; margin-top: 6px; }
+
+/* compliance badges on the card */
+.compliance-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.compliance-badge { background: rgba(26,47,32,0.07); border: 1px solid rgba(26,47,32,0.15); color: var(--dark-green); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; }
+
+/* ── DIVIDER ── */
+.product-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 0; }
+.product-divider.light { border-color: rgba(0,0,0,0.07); }
+
+/* ── SSIF SECTION ── */
+.ssif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+
+.ssif-main {}
+.ssif-main p { font-size: 16px; color: rgba(255,255,255,0.82); line-height: 1.75; margin-bottom: 24px; }
+.ssif-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.ssif-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+.ssif-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold-light); flex-shrink: 0; margin-top: 6px; }
+
+.ssif-cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.ssif-contact { font-size: 14px; color: rgba(255,255,255,0.60); }
+.ssif-contact a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+.ssif-contact a:hover { color: var(--gold-bright); }
+
+.ssif-panels { display: flex; flex-direction: column; gap: 16px; }
+.ssif-panel {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.20);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.ssif-panel-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 8px;
+  display: block;
+}
+.ssif-panel h4 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.ssif-panel p { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.6; }
+
+.ssif-compliance-strip {
+  margin-top: 40px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.20);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ssif-compliance-strip .strip-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  flex-shrink: 0;
+  min-width: 120px;
+}
+.ssif-compliance-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.ssif-tag {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.30);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+/* ── CTA SECTION ── */
+.cta-section { background: var(--dark-green); padding: 84px 24px; text-align: center; }
+.cta-section h3 { font-family: "Playfair Display", serif; font-size: 38px; color: var(--gold-bright); margin-bottom: 16px; }
+.cta-section p { color: rgba(255,255,255,0.88); font-size: 18px; max-width: 540px; margin: 0 auto 32px; line-height: 1.75; }
+
+/* ── FOOTER ── */
+footer { background: var(--header-bg); border-top: 1px solid rgba(255,255,255,0.07); padding: 64px 24px 28px; font-size: 14px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 52px; }
+.footer-brand img { height: 42px; margin-bottom: 14px; display: block; }
+.footer-brand p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 260px; margin-bottom: 22px; }
+.footer-social { display: flex; gap: 10px; }
+.social-btn { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.25s, border-color 0.25s; text-decoration: none; }
+.social-btn:hover { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+.footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 18px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.60); text-decoration: none; font-size: 14px; margin-bottom: 11px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-col a:last-child { margin-bottom: 0; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { color: rgba(255,255,255,0.35); font-size: 13px; }
+.footer-bottom a { color: var(--gold-light); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold-bright); }
+.footer-badge { background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.25); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .ssif-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav.nav-links { display: none; }
+  .hamburger { display: flex; }
+  .prod-hero h1 { font-size: 34px; }
+  .prod-hero p { font-size: 16px; }
+  .product-header { flex-direction: column; gap: 16px; }
+  .product-header-text h2 { font-size: 26px; }
+  .offering-grid { grid-template-columns: 1fr; }
+  .ssif-compliance-strip { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .cta-section h3 { font-size: 28px; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .product-block { padding: 52px 20px; }
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-583BBB8H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="logo.png" alt="Queens Way Capital">
+      <span>Queens Way Capital</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-brand">
+      <img src="logo.png" alt="Logo">
+      <span>Queens Way Capital</span>
+    </div>
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="about.html">About <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="service.html">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="products.html" class="active">Products <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="contact.html">Contact Us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="contact.html">Get In Touch</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="prod-hero">
+  <div class="prod-hero-inner">
+    <span class="section-label">Product Suite</span>
+    <h1>Financial Solutions Built for Impact</h1>
+    <p>Two flagship offerings engineered for South Africa's financial services sector: payment infrastructure and capital strategy to blended impact finance.</p>
+    <div class="hero-product-pills">
+      <span class="hero-pill">Fintech &amp; Banking Solutions</span>
+      <span class="hero-pill">Impact Investment · SSIF</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PRODUCT 01: FINTECH & BANKING SOLUTIONS
+════════════════════════════════════════════════ -->
+<section class="product-block light" id="fintech">
+  <div class="product-block-inner">
+
+    <div class="product-header">
+      <div class="product-num-badge">01</div>
+      <div class="product-header-text">
+        <span class="section-label">Product One</span>
+        <h2>Fintech &amp; Banking Solutions</h2>
+        <p>Technical and commercial architecture for banks, telcos, insurers, and corporates entering or expanding in financial services. Strategy, infrastructure, and capital delivered by one partner at the speed the market demands.</p>
+      </div>
+    </div>
+
+    <div class="offering-grid">
+
+      <!-- 01 — Infrastructure Enablement -->
+      <div class="offering-card">
+        <span class="offering-card-num">01 · Fintech Infrastructure Enablement</span>
+        <h3>Build on Proven Rails, Not From Scratch</h3>
+        <span class="offering-tagline">Payment infrastructure &amp; regulatory architecture</span>
+        <ul class="offering-list">
+          <li><span class="offering-dot"></span>Strategy advisement of revenue growth opportunities</li>
+          <li><span class="offering-dot"></span>Payment switching, acquiring, and processing advisory</li>
+          <li><span class="offering-dot"></span>Digital wallet, card issuing, and mobile money enablement</li>
+          <li><span class="offering-dot"></span>Payment terminal integration with core systems</li>
+        </ul>
+        <div class="compliance-badges">
+          <span class="compliance-badge">SARB</span>
+          <span class="compliance-badge">FSCA</span>
+          <span class="compliance-badge">POPIA</span>
+        </div>
+      </div>
+
+      <!-- 02 — Strategic Capital Advisory -->
+      <div class="offering-card">
+        <span class="offering-card-num">02 · Strategic Capital Advisory</span>
+        <h3>Capital and Strategy, Precisely Aligned</h3>
+        <span class="offering-tagline">For companies raising capital or structuring a transaction.</span>
+        <ul class="offering-list">
+          <li><span class="offering-dot"></span>Growth strategy and market entry for financial services</li>
+          <li><span class="offering-dot"></span>M&amp;A advisory, deal structuring, and due diligence</li>
+          <li><span class="offering-dot"></span>Capital raising: equity, debt, and blended finance</li>
+          <li><span class="offering-dot"></span>Investor relations and board-level communication</li>
+          <li><span class="offering-dot"></span>Competitor intelligence and strategic positioning</li>
+        </ul>
+      </div>
+
+      <!-- 03 — AI Maturity & Exponential Growth -->
+      <div class="offering-card">
+        <span class="offering-card-num">03 · AI Maturity &amp; Exponential Growth Diagnostics</span>
+        <h3>Know Where You Are. Know Where to Go.</h3>
+        <span class="offering-tagline">Proprietary AI-powered organisational assessment</span>
+        <ul class="offering-list">
+          <li><span class="offering-dot"></span>Organisational maturity assessment across 6 exponential dimensions</li>
+          <li><span class="offering-dot"></span>AI readiness and digital capability benchmarking</li>
+          <li><span class="offering-dot"></span>Executive growth roadmap: 90-day, 12-month, and 3-year horizons</li>
+          <li><span class="offering-dot"></span>Sector-specific benchmarking against best-in-class peers</li>
+          <li><span class="offering-dot"></span>Board and C-suite facilitated diagnostic workshops</li>
+        </ul>
+      </div>
+
+      <!-- 04 — Why QWC -->
+      <div class="offering-card">
+        <span class="offering-card-num">04 · Why Queens Way Capital</span>
+        <h3>One Partner. Full Capability.</h3>
+        <span class="offering-tagline">Africa-first. AI-enabled. Regulatory-ready.</span>
+        <ul class="offering-list">
+          <li><span class="offering-dot"></span>Built around SA market realities, regulation, and growth dynamics</li>
+          <li><span class="offering-dot"></span>Proprietary diagnostics and data-driven insights at every engagement</li>
+          <li><span class="offering-dot"></span>SARB, FSCA, and POPIA fluency embedded in every solution</li>
+          <li><span class="offering-dot"></span>Modular solutions that scale with your ambitions</li>
+        </ul>
+        <div style="margin-top: 20px;">
+          <a href="contact.html" class="btn-primary" style="font-size: 13px; padding: 11px 24px;">Start a Conversation</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="product-divider">
+
+<!-- ═══════════════════════════════════════════════
+     PRODUCT 02: IMPACT INVESTMENT — SSIF
+════════════════════════════════════════════════ -->
+<section class="product-block dark" id="ssif">
+  <div class="product-block-inner">
+
+    <div class="product-header">
+      <div class="product-num-badge">02</div>
+      <div class="product-header-text">
+        <span class="section-label">Product Two</span>
+        <h2>Impact Investment · SSIF</h2>
+        <p>The EPF Sustainable Social Impact Fund (SSIF) is Queens Way Capital's flagship impact vehicle, providing blended finance to underserved markets across South Africa with institutional-grade governance and reporting.</p>
+      </div>
+    </div>
+
+    <div class="ssif-grid">
+      <div class="ssif-main">
+        <p>Finance with purpose. Returns with scale. The SSIF deploys capital into communities and enterprises that need it most, anchored to compliance mandates that make it a standing line item for most large SA corporates.</p>
+
+        <ul class="ssif-list">
+          <li><span class="ssif-dot"></span>Blended finance structures for SME and community development</li>
+          <li><span class="ssif-dot"></span>SALGA smart infrastructure and municipal finance solutions</li>
+          <li><span class="ssif-dot"></span>SDL and B-BBEE aligned investment mandates</li>
+          <li><span class="ssif-dot"></span>Impact reporting to international standards</li>
+          <li><span class="ssif-dot"></span>Section 18A tax-deductible investment structures</li>
+          <li><span class="ssif-dot"></span>Institutional-grade governance and third-party verification</li>
+        </ul>
+
+        <div class="ssif-cta-row">
+          <a href="contact.html" class="btn-primary">Enquire About SSIF</a>
+        </div>
+      </div>
+
+      <div class="ssif-panels">
+        <div class="ssif-panel">
+          <span class="ssif-panel-label">Section 18A · CSI Deduction</span>
+          <h4>Tax-Deductible Corporate Social Investment</h4>
+          <p>Section 18A CSI is a standing budget line item for most large SA corporates. The SSIF provides a compliant, high-impact vehicle to deploy those funds with institutional governance and measurable community outcomes.</p>
+        </div>
+        <div class="ssif-panel">
+          <span class="ssif-panel-label">B-BBEE &amp; SDL Alignment</span>
+          <h4>Scorecard-Positive. Skills-Development Ready.</h4>
+          <p>The Skills Development Levy is a compulsory 1% of payroll for qualifying employers. SSIF investment mandates are structured to align with B-BBEE scorecards and SDL obligations, turning compliance into community impact.</p>
+        </div>
+        <div class="ssif-panel">
+          <span class="ssif-panel-label">SALGA &amp; Municipal Finance</span>
+          <h4>Smart Infrastructure for Underserved Communities</h4>
+          <p>Partnering with SALGA to deploy smart infrastructure and municipal finance solutions into South Africa's most underserved communities, with measurable social outcomes and international-standard impact reporting.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ssif-compliance-strip">
+      <span class="strip-label">Compliance &amp; Alignment</span>
+      <div class="ssif-compliance-tags">
+        <span class="ssif-tag">Section 18A</span>
+        <span class="ssif-tag">B-BBEE</span>
+        <span class="ssif-tag">SDL</span>
+        <span class="ssif-tag">SALGA</span>
+        <span class="ssif-tag">Blended Finance</span>
+        <span class="ssif-tag">ESG Reporting</span>
+        <span class="ssif-tag">Impact Investment</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h3>Ready to Scale?</h3>
+  <p>Start with a call. No obligation. High value. Whether you need fintech infrastructure or an impact investment mandate, we have a product built for you.</p>
+  <a href="contact.html" class="btn-primary">Start the Conversation</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Queens Way Capital">
+        <p>Exponential Growth Activation Partner. Embedding alongside enterprises, investors, and startups to operationalise strategy and deliver measurable outcomes across Africa and beyond.</p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.linkedin.com/company/queens-way-capital/" target="_blank" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get In Touch</h5>
+        <a href="tel:+27211802936">+27 21 180 2936</a>
+        <a href="mailto:ahmed@queenswaycapital.co.za">ahmed@queenswaycapital.co.za</a>
+        <a href="https://www.google.com/maps/place/7+W+Quay+Rd,+Victoria+%26+Alfred+Waterfront,+Cape+Town,+8001/@-33.910349,18.4187707,17z">Cape Town — V&amp;A Waterfront</a>
+        <a href="https://www.google.com/maps/place/35+Ferguson+Rd,+Illovo,+Sandton,+2196/@-26.1240527,28.0467942,19z">Johannesburg — Illovo, Sandton</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Queens Way Capital. All rights reserved. Site by <a href="https://fergusonmedia.co.za" target="_blank">Ferguson Media</a>.</p>
+      <span class="footer-badge">Strategic. Digital. Impact.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const closeBtn = document.getElementById('sidebarClose');
+  function open() { sidebar.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { sidebar.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  menuBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); });
+})();
+</script>
+</body>
+</html>
